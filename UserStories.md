@@ -52,7 +52,7 @@
   - Status: Not Started
   - Author: Alejandro Gil Torres
   
-  - Display Home Page 
+- Display Home Page 
   - Description: Home page to display all the public hackathon and other stuffs
     - Some hackathon can be private as well, accessed only via some access code	
   - Dependencies: Soft dependency on “Create Hackathon”

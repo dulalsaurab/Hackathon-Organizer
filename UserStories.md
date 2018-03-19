@@ -100,20 +100,20 @@
   - Author: Sajib Sen
 
 - Browse Events
-  - Description: Allows a User to register to a public event.
+  - Description: Allows a User to register to a public event.
   - Dependencies: Create Proposal, Create Hackathon, Users Database
-  - Estimate: 3 
-  - Priority: 4
-  - Status: Not started
-  - Author: Sajib Sen
+  - Estimate: 3 
+  - Priority: 4
+  - Status: Not started
+  - Author: Sajib Sen
 
 - Voting page
-  - Description: A voting page for selecting proposed proposals. User can vote those proposal on which they like to work on	
-  - Dependencies: Create Proposal, Create Hackathon
-  - Estimate: 3 
-  - Priority: 2
-  - Status: Not started
-  - Author: Sajib Sen
+  - Description: A voting page for selecting proposed proposals. User can vote those proposal on which they like to work on	
+  - Dependencies: Create Proposal, Create Hackathon
+  - Estimate: 3 
+  - Priority: 2
+  - Status: Not started
+  - Author: Sajib Sen
  
   
   

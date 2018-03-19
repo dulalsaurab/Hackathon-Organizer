@@ -51,3 +51,50 @@
   - Priority: 5
   - Status: Not Started
   - Author: Alejandro Gil Torres
+  
+  - Display Home Page 
+  - Description: Home page to display all the public hackathon and other stuffs
+    - Some hackathon can be private as well, accessed only via some access code	
+  - Dependencies: Soft dependency on “Create Hackathon”
+  - Estimate: 4 
+  - Priority: 2
+  - Status: Not started
+  - Author: Saurab Dulal
+
+- Display Post Page
+  - Description: Display page specific to a hackathon
+    - This page should also check if hackathon is public or private. If private, it should not be displayed to an unauthorized user
+  - Dependencies: Users Database, Create Hackathon 
+  - Estimate: 3
+  - Priority: 3
+  - Status: Not started
+  - Author: Saurab Dulal
+
+- Admin Backend
+  - Description: Manage each registered hackathon, check authenticity and give pass for the display
+  - Dependencies: User Database, Create Hackathon
+  - Estimate: 5 
+  - Priority: 4
+  - Status: Not started
+  - Author: Saurab Dulal 
+
+- User Profile Page 
+  - Description: Display profile i.e. name, email etc of an user and provide edit/delete capabilities
+  - Dependencies: Login Webpage, User Database
+  - Estimate: 3 
+  - Priority: 1 
+  - Status: Not started
+  - Author: Saurab Dulal 
+
+- User’s Participation Page
+  - Description: Show user’s participation i.e. registered hackathon, proposed hackathon and all 
+  - Dependencies: Create Proposal, Custom form, Users Database
+  - Estimate: 3 
+  - Priority: 4
+  - Status: Not started
+  - Author: Saurab Dulal 
+
+  
+  
+  
+  

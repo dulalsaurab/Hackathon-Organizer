@@ -94,7 +94,14 @@
   - Status: Not started
   - Author: Saurab Dulal 
 
-  
+- Contact Us/About Us
+  - Description: Contact information about the Hackathon platform owner
+  - Dependencies: No dependencies.
+  - Estimate: 2 
+  - Priority: 5
+  - Status: Not started
+  - Author: Sajib Sen
+
   
   
   

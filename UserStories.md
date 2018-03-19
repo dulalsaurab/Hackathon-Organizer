@@ -86,7 +86,7 @@
   - Status: Not started
   - Author: Saurab Dulal 
 
-- User’s Participation Page
+- User Participation Page
   - Description: Show user’s participation i.e. registered hackathon, proposed hackathon and all 
   - Dependencies: Create Proposal, Custom form, Users Database
   - Estimate: 3 

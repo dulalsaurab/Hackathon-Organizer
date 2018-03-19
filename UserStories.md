@@ -2,15 +2,12 @@
 
 **Team:** Hackathon Organizer
 
-## xxx (Second-level headings optionally may be used to group/categorize terms)
-
 - Proposal
   - Theme for a hackathon to be selected
 - Event
   - Refers to a hackathon itself.
-# User Stories
 
-## xxx (Second-level headings optionally may be used to group/categorize USs by type of functionality)
+# User Stories
 
 - Create proposal
   - Description: Form that creates an initial proposal for an event.
@@ -102,6 +99,22 @@
   - Status: Not started
   - Author: Sajib Sen
 
+- Browse Events
+  - Description: Allows a User to register to a public event.
+  - Dependencies: Create Proposal, Create Hackathon, Users Database
+  - Estimate: 3 
+  - Priority: 4
+  - Status: Not started
+  - Author: Sajib Sen
+
+- Voting page
+  - Description: A voting page for selecting proposed proposals. User can vote those proposal on which they like to work on	
+  - Dependencies: Create Proposal, Create Hackathon
+  - Estimate: 3 
+  - Priority: 2
+  - Status: Not started
+  - Author: Sajib Sen
+ 
   
   
   

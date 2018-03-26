@@ -15,12 +15,12 @@
 
 ### Task 1: Login/Sign Up
 - Description: Create a Log In / Sign Up System for the registered users to log in or sign up for the platform
-- How to Evaluate: A user will be able log in to onto the platform with the credentials he/she sign up with.
+- How to Evaluate: A user will be able log in to the platform with the credentials he/she signed up with.
 - Outcome of Task: xxx 
 
 ### Task 2: Profile view
-- Description: On this view, the user will be able to see his information as well as how many events he is registered, participating or participated as some information about the users/organizations he is following
-- How to Evaluate: The information displayed on the view will belong to the user himself/herself and relevant information about the events.
+- Description: On this view, the user will be able to see his information as well as how many events he is registered, participating or participated and some information about the users/organizations he is following
+- How to Evaluate: The page will display info owned by the user.
 - Outcome of Task: xxx
 
 ### Task 3: Edit Profile

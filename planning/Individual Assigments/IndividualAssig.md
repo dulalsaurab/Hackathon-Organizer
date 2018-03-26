@@ -60,7 +60,7 @@
 - How to Evaluate: A user can search for a private Hackathon, he should use some private token to search. This will return hackathon details if found. 
 - Outcome of Task: xxx
 
-### Task 5: Voting Doodle
+### Task 5: Voting System
 - Description: A user can give vote to all submitted proposals they would like to work on.
 - How to Evaluate: A user can give vote to all submitted proposals for a Hackathon.
 - Outcome of Task: xxx

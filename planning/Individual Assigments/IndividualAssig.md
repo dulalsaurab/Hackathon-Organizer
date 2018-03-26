@@ -94,7 +94,8 @@
 
 ### Task 3: Admin backend: Delete/Approve hackathon or a user
 - Description: Create a view for an admin to approve or unapprove a hackathon or a user(if needed)
-- How to Evaluate: Admin will be able to delete or approve hackathon or a user from the system. Unapproved user or hackathon should be removed from the database and from the display page after the certain retention period.  
+- How to Evaluate: Admin will be able to delete or approve hackathon or a user from the system. Unapproved user or hackathon
+should be removed from the database and from the display page after the certain retention period.  
 - Outcome of Task: xxx
 
 **Note:** All the admin page is visible for a logged in admin only

@@ -29,7 +29,7 @@
 - Outcome of Task: xxx
 
 ### Task 4: Hackathon owner view.
-- Description: Create a Log In / Sign Up System for the registered users to log in or sign up for the platform
+- Description: The owner of the event will have access to a summary of the event, how many users have registered on it and review the proposals. It will be shown in this view.
 - How to Evaluate: The information of the hackathon will be display in this view, the details and the users registed to it, as well as the proposals, if there is any will show in this view.
 - Outcome of Task: xxx
 

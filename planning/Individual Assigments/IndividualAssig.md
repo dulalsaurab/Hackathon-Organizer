@@ -79,7 +79,7 @@
 
 ### Task 2: Admin backend 
 - Description: Create a web admin backend system for an admin
-- How to Evaluate: Short information about all the submitted hackathon and registered user(based on selection) will be displayed in this view. 
+- How to Evaluate: Short information about all the submitted hackathon and registered user(based on selection) will be displayed in this view 
 - Outcome of Task: xxx
     
     #### Sub-task 2.1: Display hackathon

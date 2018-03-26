@@ -7,6 +7,6 @@
 
 - User stories: planning/UserStories
 - Sitemap: planning/WebMap
-- User interface designs: planning/UI Sketeches
+- User interface designs: planning/UI Sketeches/
 - Class diagram of your model: planning/classDiagram
-- Milestone 0 individual assignments and outcomes: planning
+- Milestone 0 individual assignments and outcomes: planning/Individual Assignements/

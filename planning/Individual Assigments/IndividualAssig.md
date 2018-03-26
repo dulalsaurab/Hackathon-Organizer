@@ -9,7 +9,7 @@
 - Quality Assurance Czar: Saurab Dulal
 - Video Demo Creators:
   - Sajib Sen
-- Demo-Booth Operator: Sajib Sen
+- Demo-Booth Operator: Saurab Dulal
 
 ## Tasks: Alejandro Gil Torres
 

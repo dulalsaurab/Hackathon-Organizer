@@ -38,7 +38,7 @@
 - How to Evaluate: The database will be wellformed, and the restricitons will apply  for required data for users and the information for the hackathon. Test cases will be provided for testing that everything is working as it should be.
 - Outcome of Task: xxx
 
-### Task : Sajib Sen
+## Tasks: Sajib Sen
 
 ### Task 1: Create Hackathon 
 - Description: Create a page for a User(as owner) or an Admin to create a Hackathon by putting required and optional attributes and description
@@ -51,23 +51,23 @@
 - Outcome of Task: xxx
 
 ### Task 3: Search a Hackathon
-- Description: Create a view for a user to search the hackathon. 
-- How to Evaluate: A user can search for a Hackathon, if found, hackathon or list of related hackathon(only public) is shown in this page
+- Description: Create a view for a user to search the list of available hackathons. 
+- How to Evaluate: A user can search for a Hackathon by name, if found, hackathon or list of related hackathon(only public) is shown in this page
 - Outcome of Task: xxx
 
 ### Task 4: Search a private Hackathon
 - Description: Create a view for a user to search a private hackathon i.e. via some token
-- How to Evaluate: A user can search for a private Hackathon, he should use some private token to search. This will return hackathon details if found. 
+- How to Evaluate: A user can search for a private Hackathon, he should use some private token to search. This will return hackathon details if found. If he/she put wrong token then an error message will show up.
 - Outcome of Task: xxx
 
 ### Task 5: Voting System
-- Description: A user can give vote to all submitted proposals they would like to work on.
+- Description: Create a view where a user can give votes to all submitted proposals they would like to work on.
 - How to Evaluate: A user can give vote to all submitted proposals for a Hackathon.
 - Outcome of Task: xxx
 
 ### Task 6: Seed Required Data
 - Description: Data for sample proposal and sample Hackathon will be provided in the database.
-- How to Evaluate: The database will be disigned as class diagram says with model validation and test data.
+- How to Evaluate: The database will be designed as class diagram says with model validation and test data.
 - Outcome of Task: xxx
 
 ## Tasks: Saurab Dulal

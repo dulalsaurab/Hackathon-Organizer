@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userId: 
+  title: MyString
+  hkId: 
+  description: MyText
+  customForm: MyText
+  votes: 
+
+two:
+  userId: 
+  title: MyString
+  hkId: 
+  description: MyText
+  customForm: MyText
+  votes: 

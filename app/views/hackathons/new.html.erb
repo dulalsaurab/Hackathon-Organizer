@@ -1,0 +1,23 @@
+<h1>New Hackathon</h1>
+
+<%= render 'form', hackathon: @hackathon %>
+<% provide(:title, 'Create New Hackathon') %>
+
+<%= form_for(@hackathon) do |h_f| %>
+    <%= h_f.label :title %>
+    <%= h_f.text_field :title%>
+    <%= h_f.label :topic %>
+    <%= h_f.text_field :topic%>
+    <%= h_f.label :description %>
+    <%= h_f.text_field :description%>
+    <%= h_f.label :start_date%>
+    <%= h_f.text_field :start_date%>
+    <%= h_f.label :end_date%>
+    <%= h_f.text_field :end_date%>
+    <%= h_f.label :hackathon_venue %>
+    <%= h_f.text_field :hackathon_venue%>
+
+    <%= h_f.submit "Submit" %>
+<% end %>
+
+<%= link_to 'Back', hackathons_path %>

@@ -5,6 +5,6 @@ class User < ApplicationRecord
     EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, length: { maximum: 150 }, format: {with: EMAIL}, uniqueness: {case_sensitive: false}
     #CHECK FOR QUICK SUBMISSIONS ADDING AN INDEX TO USEREMAIL. 6.29
-
+    has_secure_password
 
 end

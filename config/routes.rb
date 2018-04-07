@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root :to => "homepage#home"
   #TODO
-  get    '/signup',  to: 'users#new'
+  
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
 end

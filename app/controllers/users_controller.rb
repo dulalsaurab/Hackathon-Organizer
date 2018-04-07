@@ -27,15 +27,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
+    #respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        log_in @user
+        flash[:success] = @user.user_name + ", Welcome to the Hackathon Organizer"
+        redirect_to @user
+        #format.html { redirect_to @user, notice: 'User was successfully created.' }
+        #format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render 'new'
+        #format.html { render :new }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # PATCH/PUT /users/1
@@ -70,6 +74,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :email, :passworld, :password_confirmation)
+      params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
     end
 end

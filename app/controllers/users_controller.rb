@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_only, only: [:index, :edit, :update, :destroy]
+  before_action :right_user,     only: [:edit, :update, :destroy]
+  before_action :admin_user,     only: :destroy
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], :per_page => 10)
   end
 
   # GET /users/1
@@ -27,20 +30,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    #respond_to do |format|
-      if @user.save
-        log_in @user
-        flash[:success] = @user.user_name + ", Welcome to the Hackathon Organizer"
-        redirect_to @user
-        #format.html { redirect_to @user, notice: 'User was successfully created.' }
-        #format.json { render :show, status: :created, location: @user }
-      else
-        render 'new'
-        #format.html { render :new }
-        #format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    #end
+    if @user.save
+      log_in @user
+      flash[:success] = @user.user_name + ", Welcome to the Hackathon Organizer"
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   # PATCH/PUT /users/1
@@ -57,24 +53,32 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    User.find(params[:id]).destroy
+    flash[:success] = "user deleted"
+    redirect_to users_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
     end
+    
+    def logged_in_only
+      unless logged?
+        flash[:danger] = "Please Log in..."
+        redirect_to login_url
+      end
+    end
+    def right_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+
 end

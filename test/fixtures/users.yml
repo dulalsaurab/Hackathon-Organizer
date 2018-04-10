@@ -8,6 +8,6 @@ one:
 
 two:
   user_name: MyString
-  email: MyString
-  passworld: MyString
-  phone: MyString
+  email: bbbb@aaaa.com
+  password_digest: <%= User.encrypt('password') %>
+  phone: ""

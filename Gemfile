@@ -38,6 +38,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
+#help for database
+gem 'faker',          '~> 1.7.3'
+#pagination
+gem 'will_paginate',  '~> 3.1.6'
+gem 'bootstrap-will_paginate', '~> 1.0.0'
 
 
 # Use Capistrano for deployment

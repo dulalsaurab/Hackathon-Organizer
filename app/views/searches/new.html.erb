@@ -1,0 +1,23 @@
+<h1> Advanced Search </h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |s| %>
+<div class="field">
+  <%= s.label :keywords %><br />
+  <%= s.text_field :keywords %>
+</div>
+<div class="field">
+  <%= s.label :topic %><br />
+  <%= s.select :topic, options_for_select(@topics), :include_blank => true %>
+</div>
+<div class="field">
+  <p><%= s.label :owner, "Owner" %> - <%= s.text_field :owner, size: 10 %></p>
+</div>
+<div class="field">
+  <p><%= s.label :number_of_participants, "number_of_participants" %> - <%= s.text_field :number_of_participants, size: 10 %></p>
+
+</div>
+
+<div class="action"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
+<% end %>
+<p><%= link_to 'Back', hackathons_path %></p>
+

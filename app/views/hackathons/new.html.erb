@@ -1,0 +1,48 @@
+
+<h1>Creating Hackathon</h1>
+
+<% if @hackathon.errors.any? %>
+<div style="background-color: #FF0000">
+<p>
+    Please fix the following errors:
+</p>
+<ul>
+   <% @hackathon.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+   <% end %>
+</ul>
+</div>
+<% end %>
+
+
+<%= form_for @hackathon do |f| %>
+
+    <p>
+        Title<br>
+        <%= f.text_field :title %><br>
+    </p>
+
+    <p>
+        Topic<br>
+        <%= f.text_field :topic %><br>
+    </p>
+
+    <p>
+        Description<br>
+        <%= f.text_field :description %><br>
+    </p>
+
+    <p>
+        Owner<br>
+        <%= f.text_field :owner %><br>
+    </p>
+
+    <p>
+    <%= f.submit "Create Hackathon" %>
+    </p>
+<% end %>
+
+<p>
+
+<%= link_to 'Back', hackathons_path %>
+

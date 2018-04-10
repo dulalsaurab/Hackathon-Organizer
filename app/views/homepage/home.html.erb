@@ -1,4 +1,21 @@
+<!-- Login option -->
+<p align="right">
+<button type="button"  class="btn btn-default navbar-btn">Login</button>
+</p>
+
+<div text-align='left'>
+<%= link_to "Hackathon Listed", hackathons_path %>
+
+</div>
 <center style="margin-top: 20%">
 <h1>Welcome to Hackathon Organizer</h1>
 <p>In a few weeks you will see a cool hackathon organizer app </p>
+
+<!-- Search for a hackathon -->
+<p>Search Hackathon</p>
+<%= form_tag hackathons_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  <%= link_to "Advanced Search", new_search_path %>
 </center>

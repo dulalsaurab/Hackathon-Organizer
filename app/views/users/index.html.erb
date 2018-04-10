@@ -9,6 +9,8 @@
       <th>Email</th>
       <th>Passworld</th>
       <th>Phone</th>
+      <th>Hackathon</th>
+      <th>Proposal</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +22,16 @@
         <td><%= user.email %></td>
         <td><%= user.passworld %></td>
         <td><%= user.phone %></td>
+        <td>
+        <% user.hackathons.each do |hackathon| %>
+          |<%= hackathon.title %><br>
+        <% end %>
+        </td>
+        <td>
+        <% user.proposals.each do |proposal| %>
+          |<%= proposal.title %><br>
+        <% end %>
+        </td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

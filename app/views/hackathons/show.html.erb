@@ -1,6 +1,6 @@
 
 <!-- <p id="notice"><%= notice %></p> -->
-
+<% if logged? %>
 <p>
   <strong>Title:</strong>
   <%= @hackathon.title %>
@@ -32,3 +32,10 @@
 
 <%= link_to 'Edit', edit_hackathon_path(@hackathon) %> |
 <%= link_to 'Back', hackathons_path %>
+<% else %>
+<script type="text/javascript">
+    alert("You must be logged in to view this page")
+    window.location.href="/login" 
+</script>
+
+<% end %>

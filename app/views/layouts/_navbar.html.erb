@@ -1,14 +1,19 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Hackhathon Organizer", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged? %>
-          <li><%= link_to "Log out", logout_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+<div class="container">
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Hackhathon Organizer", root_path, class: "btn btn-info" %>
+      <nav>
+        <ul style = "color: white;" class="nav navbar-nav navbar-right">
+          <% if logged? %>
+            Hello, <%=current_user.user_name%> 
+            <%= link_to "Profile", user_path, class: "btn btn-primary btn-xl" %>
+            <%= link_to "Log out", logout_path, method: :delete,class: "btn btn-danger btn-xl" %>
+          <% else %>
+            <%= link_to "Log in", login_path, class: "btn btn-primary btn-xl" %>
+            <%= link_to "Sign up", signup_path, class: "btn btn-primary btn-xl" %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

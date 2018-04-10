@@ -18,4 +18,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "auth? returns false for a user with nil remember_me" do
+    assert_not @user.auth?('')
+  end
+
 end

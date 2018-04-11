@@ -6,8 +6,11 @@
     <li>
       <%= link_to user.user_name, user, class: "btn btn-info" %>
       <% if current_user.admin? && !current_user?(user) %>
+
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
+
+      <%= link_to 'New Hackathon', new_hackathon_path %> 
       <% end %>
     </li>
     </br>

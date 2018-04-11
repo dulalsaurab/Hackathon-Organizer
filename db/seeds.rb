@@ -20,7 +20,7 @@
 #admin = User.new(user_name: 'Admin', email: 'aaaa@aaa.com', passworld: 'topsecretadmin', admin: true )
 
 
-=begin
+
 User.create!(user_name:  "Admin",
              email: "admin@admin.com",
              password:              "password",
@@ -36,6 +36,9 @@ User.create!(user_name:  "Admin",
                  password: password,
                  password_confirmation: password)
 end
+hackathon_1 = Hackathon.new(title: 'First one ever', topic: 'fantasy', description: 'The coolest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "west minister")
+
+hackathon_2 = Hackathon.new(title: 'Second one ever', topic: 'Tech', description: 'The hotest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "east minister")
 
 proposal_1= Proposal.new(userId: 1, title: 'first proposal', hkId: 1, description: 'hello world', customForm: 'form', votes: 0)
 proposal_2= Proposal.new(userId: 2, title: '2nd proposal', hkId: 2, description: 'hello world', customForm: 'form', votes: 0)
@@ -51,15 +54,12 @@ proposal_2.hackathon= hackathon_2
 #admin.save!
 hackathon_1.save!
 hackathon_2.save!
-=end
 
+=begin
 user_1 = User.new(user_name: 'Alex', email: 'aaaa@aaa.com', passworld: 'topsecret' )
 user_2 = User.new(user_name: 'Saurab', email: 'aaaa@aaa.com', passworld: 'topsecret' )
 user_3 = User.new(user_name: 'Sajib', email: 'aaaa@aaa.com', passworld: 'topsecret' )
 admin = User.new(user_name: 'Admin', email: 'aaaa@aaa.com', passworld: 'topsecretadmin', admin: true )
-hackathon_1 = Hackathon.new(title: 'First one ever', topic: 'fantasy', description: 'The coolest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "west minister")
-
-hackathon_2 = Hackathon.new(title: 'Second one ever', topic: 'Tech', description: 'The hotest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "east minister")
 
 proposal_1= Proposal.new(userId: 1, title: 'first proposal', hkId: 1, description: 'hello world', customForm: 'form', votes: 0)
 proposal_2= Proposal.new(userId: 2, title: '2nd proposal', hkId: 2, description: 'hello world', customForm: 'form', votes: 0)
@@ -96,8 +96,9 @@ user_1.save!
 user_2.save!
 user_3.save!
 admin.save!
-hackathon_1.save!
-hackathon_2.save!
+#hackathon_1.save!
+#hackathon_2.save!
 
 proposal_1.save!
 proposal_2.save!
+=end

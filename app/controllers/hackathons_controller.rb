@@ -4,7 +4,7 @@ class HackathonsController < ApplicationController
   # GET /hackathons
   # GET /hackathons.json
   def index
-    @hackathons = Hackathon.all
+    @hackathons = Hackathon.where(:user_id => current_user.id)
   end
 
   # GET /hackathons/1
@@ -42,6 +42,9 @@ class HackathonsController < ApplicationController
   def update
     respond_to do |format|
       if @hackathon.update(hackathon_params)
+        
+        put hackathon_params
+
         format.html { redirect_to @hackathon, notice: 'Hackathon was successfully updated.' }
         format.json { render :show, status: :ok, location: @hackathon }
       else
@@ -69,7 +72,7 @@ class HackathonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hackathon_params
-      params.require(:hackathon).permit(:title, :topic, :description, :number_of_participants, :start_date, :end_date, :hackathon_venue)
+      params.require(:hackathon).permit(:title, :topic, :description, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id)
       # params.fetch(:hackathon, {})
     end
 end 

@@ -40,6 +40,12 @@
           <%= f.text_area :description, class: "form-control" %>
         </div>
       </div>
+      <div class="form-group">
+        <%= f.label :number_of_participants, "No of Participants:", class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.number_field :number_of_participants, class: "form-control" %>
+        </div>
+      </div>
      <div class="form-group">
         <%= f.label :start_date, "Start Date:", class: "col-md-3 control-label" %>
         <div class="col-md-7">
@@ -69,6 +75,8 @@
         </div>
       </div>
 
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        
       <%= f.submit "Submit", class: "btn-sm btn-default btn-primary pull-right abc" %>  
       <%= link_to 'Go Back', hackathons_path, class: "btn-sm btn-success pull-right abc" %>
 </div>

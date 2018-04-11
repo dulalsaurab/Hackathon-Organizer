@@ -1,4 +1,14 @@
 class Hackathon < ApplicationRecord
+    belongs_to :user
+    has_many :proposals
+
+    def self.search(search)
+        if search
+            where(["title LIKE ?", "%#{search}%"])
+        else
+            all
+        end
+    end
 
     validates :title, presence: true
     validates :description, presence: true

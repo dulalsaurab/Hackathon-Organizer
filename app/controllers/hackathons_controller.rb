@@ -4,6 +4,8 @@ class HackathonsController < ApplicationController
   # GET /hackathons
   # GET /hackathons.json
   def index
+    @hackathons = Hackathon.search(params[:search]) 
+    #render 'hackathons/index.html.erb'
     @hackathons = Hackathon.where(:user_id => current_user.id)
   end
 

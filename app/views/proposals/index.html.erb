@@ -1,0 +1,56 @@
+
+<head>
+<!-- link for voting system -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<h1>Listing Proposal</h1>
+
+<table>
+<tr>
+<th>Hackathon</th>
+<th>title </th>
+
+<th colspan="4"></th>
+
+</tr>
+
+<% @proposals.each do |proposal| %>
+
+<tr>
+<td><%= proposal.hackathon.title %></td>
+<td><%= proposal.title %></td>
+<!-- voting system -->
+<td class="btn btn-default btn-sm">
+<%= link_to like_proposal_path(proposal), method: :put do %> 
+<span class="glyphicon glyphicon-thumbs-up">Like (<%= proposal.get_upvotes.size %>)</span> 
+    
+<% end %>
+</td>
+<td class="btn btn-default btn-sm">
+  
+<%= link_to dislike_proposal_path(proposal), method: :put do %>
+    <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= proposal.get_downvotes.size %>)</span> 
+    
+<% end %>
+</td>
+
+<td><%= link_to 'Show', proposal_path(proposal) %> 
+
+</td>
+
+
+</tr>
+<% end %>
+
+
+</table>
+<%= link_to 'Back', hackathons_path %>
+
+
+
+

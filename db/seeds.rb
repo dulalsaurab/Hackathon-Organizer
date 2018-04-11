@@ -27,7 +27,7 @@ User.create!(user_name:  "Admin",
              password_confirmation: "password",
              admin: true)
 
-50.times do |n|
+10.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@hkorg.com"
     password = 'password'
@@ -101,3 +101,4 @@ hackathon_2.save!
 
 proposal_1.save!
 proposal_2.save!
+# hackathon_1.save!

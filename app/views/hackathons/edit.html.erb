@@ -1,6 +1,14 @@
+<% if logged? %>
+
 <h1>Editing Hackathon</h1>
 
 <%= render 'form', hackathon: @hackathon %>
 
 <%= link_to 'Show', @hackathon %> |
 <%= link_to 'Back', hackathons_path %>
+<% else %>
+<script type="text/javascript">
+    alert("You must be logged in to view this page")
+    window.location.href="/login" 
+</script>
+<% end %>

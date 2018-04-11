@@ -44,9 +44,6 @@ class HackathonsController < ApplicationController
   def update
     respond_to do |format|
       if @hackathon.update(hackathon_params)
-        
-        put hackathon_params
-
         format.html { redirect_to @hackathon, notice: 'Hackathon was successfully updated.' }
         format.json { render :show, status: :ok, location: @hackathon }
       else

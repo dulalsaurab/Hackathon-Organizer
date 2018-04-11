@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-
+    has_many :hackathons
+    has_many :proposals
+=begin
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
     validates :user_name, presence: true, length: { maximum: 50 }, uniqueness: {case_sensitive: false}
@@ -33,4 +35,5 @@ class User < ApplicationRecord
     def forget
         update_attribute(:remember_me, nil)
     end
+=end
 end

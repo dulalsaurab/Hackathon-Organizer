@@ -1,26 +1,84 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Hackathons</h1>
 
+
+<p align="right">
+<button type="button"  class="btn btn-default navbar-btn">Login</button>
+</p>
+
+<%= link_to 'Homepage', homepage_home_path %>
+
+
+
+<h1>Listing Hackathons</h1>
+
+<%= form_tag hackathons_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+<%= link_to "Advanced Search", new_search_path %>
+
+<!-- table to listing hackathons -->
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<tr>
+<th>Title </th>
+<th>Topic </th>
+<th>Description</th>
+<th>Owner</th>
+<th>Hackathon Venue</th>
+<th>Start Date</th>
+<th>End Date</th>
+<th>total proposals</th>
+<th>participents</th>
+<th colspan="3"></th>
 
-  <tbody>
-    <% @hackathons.each do |hackathon| %>
-      <tr>
-        <td><%= hackathon.title %></td>
-        <td><%= link_to 'Show', hackathon %></td>
-        <td><%= link_to 'Edit', edit_hackathon_path(hackathon) %></td>
-        <td><%= link_to 'Destroy', hackathon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+</tr>
+<!-- For each hackathon in the list do the following -->
+  
+<% @hackathons.each do |hackathon| %>
+
+
+<tr>
+   <td><%= hackathon.title %></td>
+   <td><%= hackathon.topic %></td>
+   <td><%= hackathon.description %></td>
+   <td><%= hackathon.owner %></td>
+   <td><%= hackathon.hackathon_venue %></td>
+   <td><%= hackathon.start_date %></td>
+   <td><%= hackathon.end_date %></td>
+   <td><%= hackathon.proposals.count %></td>
+   <td>
+   <% count=0 %>
+   <% @users= User.all %>
+   <% @users.each do |user| %>
+   <% user.hackathons.each do |hackathon2| %>
+      <% if (hackathon == hackathon2) then %>
+      <%= count= count+1 %>
+      <% end %>
+   <% end %>
+   <% end %>
+   <%= print(count) %>
+    </td>
+
+
+   <td><%= link_to 'Show Details', hackathon_path(hackathon) %> 
+   <%= link_to 'Edit', edit_hackathon_path(hackathon) %> 
+   </td>
+   <td><%= link_to 'Destroy', hackathon_path(hackathon), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+   
+
+</tr>
+<% end %>
+
+
 </table>
+<p>
+<%= link_to 'New Hackathon', new_hackathon_path %> 
+</p>
+<p>
+<%= link_to 'Vote for Proposals', proposals_path %>
 
-<br>
 
-<%= link_to 'New Hackathon', new_hackathon_path %>
+</p>
+
+

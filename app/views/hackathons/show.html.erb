@@ -24,6 +24,26 @@
   <strong>Date:</strong>
   <%= @hackathon.start_date%> - <%= @hackathon.end_date%>
 </p>
+<p>
+  <b>List of Proposals:</b>
+  <% @hackathon.proposals.each do |proposal| %>
+   <br>|
+   <%= link_to proposal.title, proposal_path(proposal) %>
+   <td class="btn btn-default btn-sm">
+  <%= link_to like_proposal_path(proposal), method: :put do %> 
+  <span class="glyphicon glyphicon-thumbs-up">Like (<%= proposal.get_upvotes.size %>)</span> 
+    
+  <% end %>
+  </td>
+  <td class="btn btn-default btn-sm">
+  
+  <%= link_to dislike_proposal_path(proposal), method: :put do %>
+  <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= proposal.get_downvotes.size %>)</span> 
+    
+  <% end %>
+  </td>
+  <% end %>
+</p>
 
 <p>
   <strong>Number of Participants:</strong>

@@ -4,7 +4,8 @@ class HackathonsController < ApplicationController
   # GET /hackathons
   # GET /hackathons.json
   def index
-    @hackathons = Hackathon.all
+    @hackathons = Hackathon.search(params[:search]) 
+    #render 'hackathons/index.html.erb'
   end
 
   # GET /hackathons/1

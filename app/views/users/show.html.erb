@@ -1,15 +1,48 @@
 <div class=" col-md-offset-3">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
+<h2 style= "text-align:left;">
+  
+  <% if current_user.admin? && !current_user?(@user) %>
+  Hello 
+    <strong>ADMIN. </strong>
+</h2>
+    <p>
+      Welcome to <strong><%= @user.user_name %> </strong>profile!
+    </p>
+  <%else%>
+<h2 style= "text-align:left;">
+  Hello
+  <strong>
+  <%= @user.user_name %>.
+  </strong>
+  
+</h2>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
+    <strong>Welcome to your profile!</strong>
+  </p>
+
+  
+<div class="col-md-4">
+  <%= link_to "My Hackathons", hackathons_path, class: "btn btn-primary" %>
+</div>
+<div class="col-md-4">
+  <%= link_to "Search", users_path, class: "btn btn-primary" %>
+</div>
+<div class="col-md-4">
+  <a class="btn btn-primary" href="#">Followers</a>
+</div>
+</br></br>
+</br></br>
+</br></br>
+
+<h2>Coming soon</h2>
+<h3>List of Hackathons that <%= @user.user_name %>. is registered!</h3>
+<h3>List of Users that <%= @user.user_name %> is registered</h3>
+
+  <% end %>
+
 <!--
 <p>
   <strong>Passworld:</strong>
@@ -21,10 +54,12 @@
   <%= @user.phone %>
 </p>
 -->
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</br>
+</br>
+</br>
+
 <% if current_user.admin? && !current_user?(@user) %>
-    | <%= link_to "delete", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+    Do you want to <%= link_to "DELETE", @user, method: :delete,
+                                  data: { confirm: "You sure?" } %>, this user?
 <% end %>
 </div>

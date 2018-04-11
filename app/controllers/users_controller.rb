@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_only, only: [:index, :edit, :update, :destroy]
-  before_action :right_user,     only: [:edit, :update, :destroy]
+  before_action :right_user,     only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   # GET /users

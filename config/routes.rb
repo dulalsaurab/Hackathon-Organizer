@@ -29,4 +29,18 @@ Rails.application.routes.draw do
   patch 'hackathons/:id', to: 'hackathons#update'
   delete 'hackathons/:id', to: 'hackathons#destroy'
 
+  get 'proposals', to:'proposals#index', as:'proposals'
+  get 'proposals/:id', to: 'proposals#show', as: 'proposal'
+  #get 'upvote/:id', to: 'proposals#upvote'
+
+  resources :users
+  resources :hackathons 
+  resources :searches
+  
+  resources :proposals do 
+    member do
+      put "like", to: "proposals#upvote"
+      put "dislike", to: "proposals#downvote"
+    end
+  end
 end

@@ -69,3 +69,5 @@ gem 'rails-controller-testing'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'annotate'
+gem 'acts_as_votable', '~> 0.10.0'

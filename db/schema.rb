@@ -36,11 +36,28 @@ ActiveRecord::Schema.define(version: 20180410233232) do
     t.integer "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "hackathon_id"
+    t.index ["hackathon_id"], name: "index_proposals_on_hackathon_id"
+    t.index ["user_id"], name: "index_proposals_on_user_id"
   end
 
   create_table "registrations", force: :cascade do |t|
     t.integer "userId"
     t.integer "HkId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "topic"
+    t.text "description"
+    t.integer "owner"
+    t.integer "number_of_participants"
+    t.date "end_date"
+    t.date "start_date"
+    t.text "hackathon_venue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +72,22 @@ ActiveRecord::Schema.define(version: 20180410233232) do
     t.boolean "admin"
     t.string "password_digest"
     t.string "remember_me"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "votable_type"
+    t.integer "votable_id"
+    t.string "voter_type"
+    t.integer "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
 end

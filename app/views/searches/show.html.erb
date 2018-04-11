@@ -1,0 +1,22 @@
+<h1> Search Results </h1>
+
+<p><%= link_to 'Back', new_search_path %></p>
+<% if @search.search_hackathons.empty? %>
+  <p> No Records Found </p>
+<% else %>
+<% @search.search_hackathons.each do |c| %>
+    <br>
+    <div class="div">
+     <h1><%= c.title %></h1>
+     <p>Topic: <%= c.topic %></p>
+     <p>Description: <%= c.description %></p>
+     <p>hackathon_venue: <%= c.hackathon_venue %></p>
+     <p>number_of_participants: <%= c.number_of_participants %></p>
+     <p>start_date: <%= c.start_date %></p>
+     <p>end_date: <%= c.end_date %></p>
+     
+
+
+    </div>
+<% end %>
+<% end %>

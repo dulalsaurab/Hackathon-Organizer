@@ -4,7 +4,14 @@
         <h1>Welcome to Hackathon Organizer</h1>
         <p>In a few weeks you will see a cool hackathon organizer app </p>
         </br>
-        
+
         <%= link_to "SIGN UP", signup_path, class: "btn btn-primary btn-xl" %>
+        <!-- Search for a hackathon -->
+        <p>Search Hackathon</p>
+        <%= form_tag hackathons_path, :method => 'get' do %>
+           <%= text_field_tag :search, params[:search] %>
+           <%= submit_tag "Search" %>
+        <% end %>
+        <%= link_to "Advanced Search", new_search_path %>
     </div>
 </div>

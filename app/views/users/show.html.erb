@@ -37,10 +37,6 @@
 </br></br>
 </br></br>
 
-<h2>Coming soon</h2>
-<h3>List of Hackathons that <%= @user.user_name %>. is registered!</h3>
-<h3>List of Users that <%= @user.user_name %> is registered</h3>
-
   <% end %>
 
 <!--
@@ -55,8 +51,12 @@
 </p>
 -->
 </br>
-</br>
-</br>
+
+
+
+<h3 style="text-align:left;">Coming soon...</h2>
+<h4>List of Hackathons that <%= @user.user_name %>. is registered!</h3>
+<h4>List of Users that <%= @user.user_name %> is registered</h3>
 
 <% if current_user.admin? && !current_user?(@user) %>
     Do you want to <%= link_to "DELETE", @user, method: :delete,

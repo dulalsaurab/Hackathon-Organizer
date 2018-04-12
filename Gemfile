@@ -43,7 +43,7 @@ gem 'faker',          '~> 1.7.3'
 #pagination
 gem 'will_paginate',  '~> 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0.0'
-
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

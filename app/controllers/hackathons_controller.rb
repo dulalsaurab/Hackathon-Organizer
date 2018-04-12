@@ -5,8 +5,14 @@ class HackathonsController < ApplicationController
   # GET /hackathons.json
   def index
     @hackathons = Hackathon.search(params[:search]) 
-    #render 'hackathons/index.html.erb'
-    @hackathons = Hackathon.where(:user_id => current_user.id)
+    
+    if defined?(current_user.id) && (current_user.id != '') then 
+       @hackathons = Hackathon.where(:user_id => current_user.id)
+    else
+      redirect_to root_url 
+      #render 'hackathons/index.html.erb'
+    end 
+    
   end
 
   # GET /hackathons/1
@@ -71,7 +77,7 @@ class HackathonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hackathon_params
-      params.require(:hackathon).permit(:title, :topic, :description, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id)
+      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id)
       # params.fetch(:hackathon, {})
     end
 end 

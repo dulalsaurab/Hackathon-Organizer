@@ -7,6 +7,11 @@ class HomepageController < ApplicationController
   end
 
   def show
-    @hackathon = Hackathon.find(params[:id]) 
+    redirect_to hackathon_url
+    # if defined?(params[:id]) && (params[:id] != '') then 
+    #     @hackathon = Hackathon.find(params[:id]) 
+    # else
+    #     redirect_to root_url
+    # end 
   end
 end

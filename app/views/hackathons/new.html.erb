@@ -77,6 +77,7 @@
       </div>
 
         <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :owner, :value => current_user.user_name %>
         
       <%= f.submit "Submit", class: "btn-sm btn-default btn-primary pull-right abc" %>  
       <%= link_to 'Go Back', hackathons_path, class: "btn-sm btn-success pull-right abc" %>

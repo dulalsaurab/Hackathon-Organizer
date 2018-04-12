@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410225714) do
+ActiveRecord::Schema.define(version: 20180412054356) do
 
   create_table "hackathons", force: :cascade do |t|
     t.string "title"
     t.string "topic"
     t.text "description"
-    t.integer "owner"
+    t.string "owner"
     t.integer "number_of_participants"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

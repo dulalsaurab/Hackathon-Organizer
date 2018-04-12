@@ -2,10 +2,11 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
 
-<% if logged? %>
 <div class="container">
   <div class="jumbotron" style="margin-top: 2%; height: 50%;">
+    <p class="text-center"> A Hackathon on</p>
     <h2><%= @hackathon.title%></h2>
+    <h4 class="text-center"><%= @hackathon.topic%></h4>
     </div>
 
   <div class="row">
@@ -23,7 +24,7 @@
      <div class="thumbnail" style="">
       <div class="caption">
         <h3>Organizer</h3>
-        <%= @current_user.user_name%>
+        <%= @hackathon.owner%>
        
       </div>
     </div>
@@ -52,17 +53,16 @@
       </div>
     </div>
 
+<% if logged? %>
+  <% if @hackathon.user_id == current_user.id %>
     <%= link_to 'Edit Hackathon', edit_hackathon_path(@hackathon), class: "btn-sm btn-success" %>
+  <% end %>    
+<% end %>
     <%= link_to 'Go To Main Page', hackathons_path, class: "btn-sm btn-primary   "%>
     </div>
     
   </div>
   </div>
 </div>
-<% else %>
-<script type="text/javascript">
-    alert("You must be logged in to view this page")
-    window.location.href="/login" 
-</script>
 
-<% end %>
+

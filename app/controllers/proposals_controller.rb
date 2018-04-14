@@ -5,7 +5,13 @@ class ProposalsController < ApplicationController
         #render 'proposals/show.html.erb'
     end
     def index
-        @proposals = Proposal.all 
+        #@proposals = Proposal.all 
+        if defined?(current_user.id) && (current_user.id != '') then 
+            @proposals = Proposal.where(:user_id => current_user.id)
+         else
+           redirect_to root_url 
+           #render 'proposals/index.html.erb'
+         end 
         #render 'proposals/index.html.erb'
     end
 
@@ -16,14 +22,14 @@ class ProposalsController < ApplicationController
     end
     
     def create
-        @proposal.new(userId: params[:proposal][:userId],
-                       title: params[:proposal][:title],
-                       hkId: params[:proposal][:hkId],
-                       description: params[:proposal][:description],
-                       customForm: params[:proposal][:customForm],
-                       votes: params[:proposal][:votes]
-                       )
-        #@proposal.user= current_user
+        @proposal= Proposal.new(userId: params[:proposal][:userId],
+                                title: params[:proposal][:title],
+                                hkId: params[:proposal][:hkId],
+                                description: params[:proposal][:description],
+                                customForm: params[:proposal][:customForm],
+                                votes: params[:proposal][:votes]
+                                )
+        
         
         if @proposal.save
             

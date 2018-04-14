@@ -1,0 +1,50 @@
+<h1>Creating Proposal</h1>
+
+<% if @proposal.errors.any? %>
+<div style="background-color: #FF0000">
+<p>
+    Please fix the following errors:
+</p>
+<ul>
+   <% @proposal.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+   <% end %>
+</ul>
+</div>
+<% end %>
+
+
+
+
+<%= form_for @proposal do |f| %>
+    <p> 
+        User Id<br>
+        <%= f.text_field :userId %><br>
+    </p>
+
+    <p>
+        Title<br>
+        <%= f.text_field :title %><br>
+    </p>
+    <p> 
+        Hackathon Name<br>
+        <%= f.text_field :hkId %><br>
+    </p>
+
+
+
+    <p>
+        Description<br>
+        <%= f.text_field :description %><br>
+    </p>
+
+
+
+    <p>
+    <%= f.submit "Create Proposal" %>
+    </p>
+<% end %>
+
+<p>
+
+<%= link_to 'Back', proposals_path %>

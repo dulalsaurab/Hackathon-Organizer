@@ -29,10 +29,18 @@ Rails.application.routes.draw do
   put 'hackathons/:id', to: 'hackathons#update'
   patch 'hackathons/:id', to: 'hackathons#update'
   delete 'hackathons/:id', to: 'hackathons#destroy'
-
+#Created by sajib
   get 'proposals', to:'proposals#index', as:'proposals'
+  
+  get 'proposals/new', to: 'proposals#new', as: 'new_proposal'
+  post 'proposals', to: 'proposals#create'
   get 'proposals/:id', to: 'proposals#show', as: 'proposal'
-  #get 'upvote/:id', to: 'proposals#upvote'
+  get 'proposals/:id/edit', to: 'proposals#edit', as: 'edit_proposal'
+  put 'proposals/:id', to: 'proposals#update'
+  patch 'proposals/:id', to: 'proposals#update'
+  delete 'proposals/:id', to: 'proposals#destroy'
+  
+ 
 
   resources :users
   resources :hackathons 
@@ -44,4 +52,5 @@ Rails.application.routes.draw do
       put "dislike", to: "proposals#downvote"
     end
   end
+#created by sajib
 end

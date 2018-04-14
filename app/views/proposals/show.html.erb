@@ -1,23 +1,36 @@
+<table>
+<tr>
+   <th>Title</th>
+   <th>Description</th>
 
-<p>
-<b>title:</b>
-<%= @proposal.title%>
-</p>
-<td class="btn btn-default btn-sm">
-<%= link_to like_proposal_path(@proposal), method: :put do %> 
-<span class="glyphicon glyphicon-thumbs-up">Like (<%= @proposal.get_upvotes.size %>)</span> 
+   <th colspan="4"></th>
+
+</tr>
+<tr>
+   <td>
+   <%= @proposal.title%>
+   </td>
+   <td>
+   <%= @proposal.description %>
+   <!-- Votes for the proposal -->
+   </td>
+   <td class="btn btn-default btn-sm">
+   <%= link_to like_proposal_path(@proposal), method: :put do %> 
+   <span class="glyphicon glyphicon-thumbs-up">Like (<%= @proposal.get_upvotes.size %>)</span> 
     
-<% end %>
-</td>
-<td class="btn btn-default btn-sm">
+   <% end %>
+   </td>
+   <td class="btn btn-default btn-sm">
   
-<%= link_to dislike_proposal_path(@proposal), method: :put do %>
-    <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= @proposal.get_downvotes.size %>)</span> 
-    
-<% end %>
-</td>
+   <%= link_to dislike_proposal_path(@proposal), method: :put do %>
+   <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= @proposal.get_downvotes.size %>)</span> 
+   <!-- Votes for the Proposal -->
+   <% end %>
+   </td>
+</tr>
+</table>
 
 <p>
 
-<%= link_to 'Back', proposals_path %>
+   <%= link_to 'Back', proposals_path %>
 </p>

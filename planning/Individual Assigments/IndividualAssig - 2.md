@@ -85,27 +85,27 @@
 ## Tasks: Sajib Sen
 
 ### Task 1: Restrict private hackathon search
-- Description: A field to search a private hackathon but restrict other user without having token for the private hackathon
-- How to Evaluate: A user can not search a private hackathon without it's token
+- Description: A field in search new page to search a private hackathon with a token.
+- How to Evaluate: A user can not search a private hackathon without it's token. The user can only search the public hackathons.
 - Outcome of Task: xxx
 
-### Task 2: Create customize proposal 
+### Task 2: Create/Edit customize proposal 
 - Description: A User(as owner) can edit a Hackathon by putting required and optional attributes and description.
 - How to Evaluate: A user(as owner) can edit an already created Hackathon.
 - Outcome of Task: xxx
 
 ### Task 3: Calculate total voting
-- Description: After voting the most voted proposal will be top in the list
-- How to Evaluate: A user can vote for proposal and can see how the proposals are ranked according to the number of votes
+- Description: This task will calculate total given votes for a proposal and ranked those proposal on proposal index based in decending order
+- How to Evaluate: A user can vote for proposal and can see how the proposals are ranked according to the number of votes given.
 - Outcome of Task: xxx
 
-### Task 4: Edit proposal
-- Description: A user can edit the proposal he/she created and submit it again.
-- How to Evaluate: After creating proposal a user can edit as his/her wish
+### Task 4: Delete proposal
+- Description: A user can delete a proposal which will remove all the corresponding proposal data from the database
+- How to Evaluate: After creating proposal when a user delete that proposal he/she can see the effect how all corresponding data changes automatically.
 - Outcome of Task: xxx
 
-### Task 5: Delete proposal
-- Description: A proposal can be deleted when user wish and corresponding data will also be deleted from the app
-- How to Evaluate: After creating a proposal a user can delete the proposal and can see how all proposals are ranked after it.
+### Task 5: UI for proposal pages
+- Description: UI sketches for proposal pages will be made uniform with other pages so that every page looks same
+- How to Evaluate: When a user create a proposal he/she can see that all pages style are uniform to look
 - Outcome of Task: xxx
 

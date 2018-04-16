@@ -13,30 +13,35 @@
 
 ## Tasks: Alejandro Gil Torres
 
-### Task 1: Login/Sign Up
-- Description: Create a Log In / Sign Up System for the registered users to log in or sign up for the platform
-- How to Evaluate: A user will be able log in to the platform with the credentials he/she signed up with.
-- Outcome of Task: I created a login system that works great, has session control and works with cookies. It was an experience I really enjoyed. 
+### Task 1: Finish Profile view for user/admin
+- Description: Users and Admins will have access to the information on their profils as hackathons, followers, upcoming hackathons...
+- How to Evaluate: The information will be shown on the user profile page according to the user and his/her related content.
+- Outcome of Task: xxx 
 
-### Task 2: Profile view
-- Description: On this view, the user will be able to see his information as well as how many events he is registered, participating or participated and some information about the users/organizations he is following
-- How to Evaluate: The page will display info owned by the user.
-- Outcome of Task: I am offering personalized content bases on the session open and the user that is logged in.
+### Task 2: Responsive design
+- Description: Log in/sign up forms, font size, switch between different devices will mantain a user friendly interface
+- How to Evaluate: The UI will be responsive.
+- Outcome of Task: xxx
 
-### Task 3: Edit Profile
-- Description: The user will access to a new view where it can review its information and modify if he needs/wants to.
-- How to Evaluate: A user will be able to edit his information.
-- Outcome of Task: This was a simple form to edit basic user information that will be updated in the future with more information about the user.
+### Task 3: Change password
+- Description: A user will be able to change his/her password.
+- How to Evaluate: The user will be able to change the password succesfully.
+- Outcome of Task: xxx
 
-### Task 4: Hackathon owner view.
-- Description: The owner of the event will have access to a summary of the event, how many users have registered on it and review the proposals. It will be shown in this view.
-- How to Evaluate: The information of the hackathon will be display in this view, the details and the users registed to it, as well as the proposals, if there is any will show in this view.
-- Outcome of Task: This view is incompleted for some integration issues during the development. We will need to work on this part over during the next iteration.
+### Task 4: Followers system
+- Description: A user will be able to follow system and check the people that follows him.
+- How to Evaluate: A user will follow another user successfully and it will be added to the user following list
+- Outcome of Task: xxx
 
-### Task 5: Seed the Database
-- Description: Create some users, prepare the DB skeleton
-- How to Evaluate: The database will be wellformed, and the restricitons will apply  for required data for users and the information for the hackathon. Test cases will be provided for testing that everything is working as it should be.
-- Outcome of Task: I learned a new method to seed large amounts of data into a Database, that I think it will be really resourcefull for the future.
+### Task 5: Register Hackathon
+- Description: A user will be able to register to an event of his/her choice.
+- How to Evaluate: A user will be able to register to the event he/she selected and access the features of a registered user.
+- Outcome of Task: xxx
+
+### Task 6: Remove Admin from User List.
+- Description: A normal user won't be able to find admin users on the user list.
+- How to Evaluate: Admin users won't appear when a user makes search for another users.
+- Outcome of Task: xxx
 
 ## Tasks: Sajib Sen
 

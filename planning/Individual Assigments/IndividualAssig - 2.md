@@ -84,32 +84,28 @@
 
 ## Tasks: Sajib Sen
 
-### Task 1: Create Hackathon 
-- Description: Create a page for a User(as owner) or an Admin to create a Hackathon by putting required and optional attributes and description
-- How to Evaluate: A user as a owner or an admin can create a Hackathon by putting all attributes.
+### Task 1: Restrict private hackathon search
+- Description: A field to search a private hackathon but restrict other user without having token for the private hackathon
+- How to Evaluate: A user can not search a private hackathon without it's token
 - Outcome of Task: xxx
 
-### Task 2: Edit/Modify Hackathon 
+### Task 2: Create customize proposal 
 - Description: A User(as owner) can edit a Hackathon by putting required and optional attributes and description.
 - How to Evaluate: A user(as owner) can edit an already created Hackathon.
 - Outcome of Task: xxx
 
-### Task 3: Search a Hackathon
-- Description: Create a view for a user to search the list of available hackathons. 
-- How to Evaluate: A user can search for a Hackathon by name, if found, hackathon or list of related hackathon(only public) is shown in this page
+### Task 3: Calculate total voting
+- Description: After voting the most voted proposal will be top in the list
+- How to Evaluate: A user can vote for proposal and can see how the proposals are ranked according to the number of votes
 - Outcome of Task: xxx
 
-### Task 4: Search a private Hackathon
-- Description: Create a view for a user to search a private hackathon i.e. via some token
-- How to Evaluate: A user can search for a private Hackathon, he should use some private token to search. This will return hackathon details if found. If he/she put wrong token then an error message will show up.
+### Task 4: Edit proposal
+- Description: A user can edit the proposal he/she created and submit it again.
+- How to Evaluate: After creating proposal a user can edit as his/her wish
 - Outcome of Task: xxx
 
-### Task 5: Voting System
-- Description: Create a view where a user can give votes to all submitted proposals they would like to work on.
-- How to Evaluate: A user can give vote to all submitted proposals for a Hackathon.
+### Task 5: Delete proposal
+- Description: A proposal can be deleted when user wish and corresponding data will also be deleted from the app
+- How to Evaluate: After creating a proposal a user can delete the proposal and can see how all proposals are ranked after it.
 - Outcome of Task: xxx
 
-### Task 6: Seed Required Data
-- Description: Data for sample proposal and sample Hackathon will be provided in the database.
-- How to Evaluate: The database will be designed as class diagram says with model validation and test data.
-- Outcome of Task: xxx

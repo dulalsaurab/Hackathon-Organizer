@@ -43,6 +43,45 @@
 - How to Evaluate: Admin users won't appear when a user makes search for another users.
 - Outcome of Task: xxx
 
+
+## Tasks: Saurab Dulal
+
+### Task 1: Submit Proposal
+- Description: Create a button in a hackathon page to submit a proposal for it
+- How to Evaluate: A logged in user should be able to register for a hackathon
+- Outcome of Task: xxx
+
+### Task 2: Follow Hackathon
+- Description: Create a button to follow a hackathon
+- How to Evaluate: A logged in user should be able to follow a hackathon
+    - Outcome of Task: xxx
+
+### Task 3: Customized Hackathon Show Page
+- Description: Hackathon show page was incomplete in the first iteration, it will be customized and will be completed
+- How to Evaluate: Every single functionality should work, as well as the link with dependencies such as user/proposal should be complete
+- Outcome of Task: xxx
+
+### Task 4: Customized New Hackathon Page
+- Description: "Create new hackathon" page lacks some fields such as private/public hackathon, create a text field for them.  
+- How to Evaluate: Text field to specify private/public hackathon will be included. Note: This is to separate private and public Hackathon so that to restrict private hackathon being displayed in the home page. 
+- Outcome of Task: xxx
+
+### Task 5: UI/UX
+- Description: Home page and hackathon pages should contains CSS and user friendly design
+- How to Evaluate: Responsive design and friendly interface
+- Outcome of Task: xxx
+
+### Task 6: Show registered user
+- Description: Create a field in "show hackathon" page to display all the user registered to a hackathon
+- How to Evaluate: All the users registered to a hackathon will be shown
+- Outcome of Task: xxx
+
+### Task 7: Show Proposal
+- Description: Create a page to show all the proposal submitted to a hackathon
+- How to Evaluate: All the proposal submitted for a hackathon will be shown in a specific page
+- Outcome of Task: xxx
+
+
 ## Tasks: Sajib Sen
 
 ### Task 1: Create Hackathon 
@@ -73,44 +112,4 @@
 ### Task 6: Seed Required Data
 - Description: Data for sample proposal and sample Hackathon will be provided in the database.
 - How to Evaluate: The database will be designed as class diagram says with model validation and test data.
-- Outcome of Task: xxx
-
-## Tasks: Saurab Dulal
-
-### Task 1: Admin Login
-- Description: Create a login page for a web admin (this is separate than user login window). 
-- How to Evaluate: An admin will be able to log in to the backend with the credentials he/she is provided. There will be no provision for a user to register as an admin. This user is created manually in the system
-- Outcome of Task: xxx
-
-### Task 2: Admin backend: Display hackathon
-- Description: Create a view to display hackathons for admin
-- How to Evaluate: Brief information about the submitted hackathon will be displayed on this page along with the status i.e. approved or rejected
-    - Outcome of Task: xxx
-
-### Task 3: Admin backend: Display User
-- Description: Create a view to display all registered users for admin
-- How to Evaluate: Short info about all the registered user will be displayed in this view. 
-- Outcome of Task: xxx
-
-### Task 4: Admin backend: Delete/edit hackathon or a user
-- Description: Create a view for an admin to approve or unapprove a hackathon or a user(if needed)
-- How to Evaluate: Admin will be able to delete or approve hackathon or a user from the system. Unapproved user or hackathon
-should be removed from the database and from the display page after the certain retention period.  
-- Outcome of Task: xxx
-
-**Note:** All the admin page is visible for a logged in admin only
-
-### Task 5: Creating Proposal 
-- Description: A user can create one or many proposals if he/she wish. Besides all required attributes, he/she can add and fill customize form also.
-- How to Evaluate: A user can create one or many proposals for a Hackathon with customizing form as an added feature. This should populate appropriate fields in the database. 
-- Outcome of Task: xxx
-
-### Task 6: Edit Proposal
-- Description: Create a view for a user to modify the submitted proposal  
-- How to Evaluate: A user will be able to modify his/her proposals. Though there will be time limitations till when he/she can perform this activity. This will be verified by the appropriate test cases.
-- Outcome of Task: xxx
-
-### Task 7: Registration for a Hackathon
-- Description: Once a user finds a hackathon private or public, this view will help him/her to register for it 
-- How to Evaluate: A user will be able to register for a Hackathon(private or public)
 - Outcome of Task: xxx

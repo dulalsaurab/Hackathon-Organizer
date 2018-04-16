@@ -76,8 +76,8 @@
 <% end %>
     <%= link_to 'Go To Main Page', hackathons_path, class: "btn-sm btn-primary   "%>
     <!-- created by sajib -->
-    <%= link_to 'Create New Proposal', new_proposal_path, class: "btn-sm btn-primary " %>
-    <%= link_to 'Vote for Proposals', proposals_path, class: "btn-sm btn-primary " %>
+    <%= link_to 'Create New Proposal', new_proposal_path(@hackathon.id), class: "btn-sm btn-primary " %>
+    <%= link_to 'Vote for Proposals', proposals_path(@hackathon.id), class: "btn-sm btn-primary " %>
     <!-- created by sajib -->
     </div>
     

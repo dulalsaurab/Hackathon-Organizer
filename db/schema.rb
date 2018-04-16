@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412054356) do
+ActiveRecord::Schema.define(version: 20180416021925) do
 
   create_table "hackathons", force: :cascade do |t|
     t.string "title"
@@ -28,9 +28,7 @@ ActiveRecord::Schema.define(version: 20180412054356) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.integer "userId"
     t.string "title"
-    t.integer "hkId"
     t.text "description"
     t.text "customForm"
     t.integer "votes"

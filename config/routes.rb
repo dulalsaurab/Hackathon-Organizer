@@ -42,9 +42,10 @@ Rails.application.routes.draw do
   
  
 
-  resources :users
+ 
   resources :hackathons 
   resources :searches
+  
   
   resources :proposals do 
     member do

@@ -59,6 +59,7 @@ User.create!(user_name:  "Admin",
                  password: password,
                  password_confirmation: password)
 end
+=begin
 hackathon_1 = Hackathon.new(title: 'First one ever', topic: 'fantasy', description: 'The coolest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "west minister")
 
 hackathon_2 = Hackathon.new(title: 'Second one ever', topic: 'Tech', description: 'The hotest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "east minister")
@@ -100,4 +101,5 @@ hackathon_2.save!
 
 proposal_1.save!
 proposal_2.save!
+=end
 # hackathon_1.save!

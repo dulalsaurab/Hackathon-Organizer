@@ -1,11 +1,11 @@
 class ProposalsController < ApplicationController
-    #before_action :set_user, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+    before_action :set_proposal, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
     def show
         @proposal = Proposal.find(params[:id])
         #render 'proposals/show.html.erb'
     end
     def index
-        #@proposals = Proposal.all 
+        @proposals = Proposal.all 
         if defined?(current_user.id) && (current_user.id != '') then 
             @proposals = Proposal.where(:user_id => current_user.id)
          else
@@ -22,16 +22,14 @@ class ProposalsController < ApplicationController
     end
     
     def create
-        @proposal= Proposal.new(userId: params[:proposal][:userId],
+        @proposal= Proposal.new(
                                 title: params[:proposal][:title],
-                                hkId: params[:proposal][:hkId],
                                 description: params[:proposal][:description],
-                                customForm: params[:proposal][:customForm],
-                                votes: params[:proposal][:votes]
+                                user_id: params[:proposal][:user_id],
+                                hackathon_id: params[:proposal][:hackathon_id],
                                 )
         
-        
-        if @proposal.save
+        if @proposal.save!
             
             flash[:notice] = "proposals saved successfully!"   
             redirect_to proposals_url
@@ -54,11 +52,6 @@ class ProposalsController < ApplicationController
         redirect_to proposals_url
     end
     
-    
-   
-
-    
-    
     def edit
         @proposal = Proposal.find(params[:id])
         #render 'proposals/edit.html.erb'
@@ -66,13 +59,11 @@ class ProposalsController < ApplicationController
     
     def update
         @proposal = Proposal.find(params[:id])
-        @proposal.new(userId: params[:proposal][:userId],
-                       title: params[:proposal][:title],
-                       hkId: params[:proposal][:hkId],
-                       description: params[:proposal][:description],
-                       customForm: params[:proposal][:customForm],
-                       votes: params[:proposal][:votes]
-                       )
+        @proposal.new(title: params[:proposal][:title],
+                      description: params[:proposal][:description],
+                      user_id: params[:proposal][:user_id],
+                      hackathon_id: params[:proposal][:hackathon_id],
+                      )
             flash[:notice] = "proposals saved successfully!"
             redirect_to proposals_url
         else
@@ -83,7 +74,7 @@ class ProposalsController < ApplicationController
 
     def destroy
         begin
-            @proposal = Proposal.find(params[:id])
+            @proposal = Proposal.find(params[:format])
         rescue ActiveRecord::RecordNotFound
             flash.now[:alert] = "proposals destruction failed!"
             redirect_to proposals_url and return
@@ -95,4 +86,5 @@ class ProposalsController < ApplicationController
             flash.now[:alert] = "proposals destruction failed!"
             redirect_to proposals_url
         end
+
 end

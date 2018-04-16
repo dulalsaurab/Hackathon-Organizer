@@ -1,31 +1,46 @@
 
 <head>
-<!-- link for voting system -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<% if logged? %>
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <table id="cart" class="table table-responsive">
+            <thead>
+            <tr class="names">
+              <th style="width:50%">Proposals</th>
+              <th style="width:10%" class="text-right hidden-xs">Show</th>
+              <th style="width:10%" class="text-right hidden-xs">Edit</th>
+              <th style="width:15%" class="text-right">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @proposals.each do |proposal| %>
+            <tr class="item">
+              <td data-th="Product">
+                <div class="row">
+                  <!-- <div class="col-sm-3 hidden-xs"><img src="https://kickz.akamaized.net/en/media/images/p/600/converse-all_star_ox_canvas-bordeaux-3.jpg" alt="Converse" class="img-product img-responsive img-rounded"/></div> -->
+                  <div class="col-sm-9">
+                    <h4 class="nomargin"><%= proposal.title %></h4>
+                    <p class="hidden-xs"><%= proposal.description %></p>
+                  </div>
+                </div>
+              </td>
 
-
-<h1>Listing Proposal</h1>
-
-<table>
-  <tr>
-      <th>Hackathon</th>
-      <th>title </th>
-
-      <th colspan="4"></th>
-
-  </tr>
-
-<% @proposals.each do |proposal| %>
-
-  <tr>
-      <td><%= proposal.hackathon.title %></td>
-      <td><%= proposal.title %></td>
-      <!-- voting system -->
+ 
+               
+              <td data-th="Size" class="text-right hidden-xs"><%= link_to 'Show Proposal', proposal %></td> 
+              <td data-th="Price" class="text-right hidden-xs"><%= link_to 'Edit Proposal', edit_proposal_path(proposal) %></td>
+              <td data-th="Subtotal" class="text-right"><%= link_to 'Destroy Proposal', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              
+              <!-- voting system -->
       <td class="btn btn-default btn-sm">
+     
+      
       <%= link_to like_proposal_path(proposal), method: :put do %> 
       <span class="glyphicon glyphicon-thumbs-up">Like (<%= proposal.get_upvotes.size %>)</span> 
     
@@ -34,26 +49,38 @@
       <td class="btn btn-default btn-sm">
   
       <%= link_to dislike_proposal_path(proposal), method: :put do %>
-      <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= proposal.get_downvotes.size %>)</span> 
+      <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= proposal.get_downvotes.size %>)</span>
+     
     
       <% end %>
+     
       </td>
+              </tr>
+          </tbody>
+          <% end %>
+          <tfoot>
+            <tr class="no-border">
+              <td>
+                <%= link_to 'Create New Proposal', new_proposal_path, class:"btn btn-default"%>
+                <!-- created by sajib -->
 
-      <td><%= link_to 'Show', proposal_path(proposal) %> 
+                <%= link_to 'Back', hackathons_path, class: "btn btn-primary" %>
+                <!-- created by sajib -->
+          
+              </td>
+              <td colspan="2" class="hidden-xs"></td>
+              <td></td>
+              </tr>
+          </tfoot>
+        </table>
+</div>
+<br>
 
-      </td>
-
-
-  </tr>
+<% else %>
+<script type="text/javascript">
+    alert("You must be logged in to view this page")
+    window.location.href="/login" 
+</script>
 <% end %>
-
-
-</table>
-    <%= link_to 'Back', hackathons_path %>
-<p>
-    <%= link_to 'Create New Proposal', new_proposal_path %>
-</p>
-
-
 
 

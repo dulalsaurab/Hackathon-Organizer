@@ -1,6 +1,6 @@
 <h1> Search Results </h1>
 
-<p><%= link_to 'Back', new_search_path %></p>
+<p><%= link_to 'Back', new_search_path, class: "btn-sm btn-success pull-left abc" %></p>
 <% if @search.search_hackathons.empty? %>
   <p> No Records Found </p>
 <% else %>

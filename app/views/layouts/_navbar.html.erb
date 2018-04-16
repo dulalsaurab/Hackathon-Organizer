@@ -4,6 +4,10 @@
       <%= link_to "Hackhathon Organizer", root_path, id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
+        <!-- created by sajib -->
+
+        <li><%= link_to "Advanced Search", new_search_path %></li>
+        <!-- created by sajib -->
         <li><%= link_to "Home", root_path %></li>
         <% if logged? %>
           <li><%= link_to "Users", users_path %></li>

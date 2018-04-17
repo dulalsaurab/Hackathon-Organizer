@@ -19,8 +19,8 @@
 - Outcome of Task: xxx 
 
 ### Task 2: Responsive design
-- Description: Log in/sign up forms, font size, switch between different devices will mantain a user friendly interface
-- How to Evaluate: The UI will be responsive.
+- Description: [Log in]/[sign up],[User Profile],[Edit information], font sizes, switch between different devices will mantain a user friendly interface, will be responsive.
+- How to Evaluate: The UI will offer a  responsive designe.
 - Outcome of Task: xxx
 
 ### Task 3: Change password

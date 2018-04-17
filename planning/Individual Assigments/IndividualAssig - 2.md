@@ -47,34 +47,34 @@
 ## Tasks: Saurab Dulal
 
 ### Task 1: Submit Proposal
-- Description: Create a button to submit a proposal in the hackathon page
+- Description: Create a button to submit a proposal on the hackathon page
 - How to Evaluate: A logged in user should be able to submit a proposal for a hackathon
 - Outcome of Task: xxx
 
 ### Task 2: Follow Hackathon
 - Description: Create a button to follow a hackathon
 - How to Evaluate: A logged in user should be able to follow a hackathon
-    - Outcome of Task: xxx
+- Outcome of Task: xxx
 
 ### Task 3: Customized "New Hackathon Page"
 - Description: "Create new hackathon" page should include a text field to specify private/public hackathon
 - How to Evaluate: A user should be able to create a private or public hackathon
-Note: This is to separate a private or a public Hackathon so that to restrict private hackathon being displayed in the home page. 
+Note: This is to separate a private or a public hackathon so that to restrict private hackathon being displayed on the homepage. 
 - Outcome of Task: xxx
 
 ### Task 4: UI/UX
-- Description: Home page and hackathon pages should contains responsive and user friendly design
+- Description: Homepage and hackathon pages should contain responsive and user-friendly design
 - How to Evaluate: As part of this task, responsive design(good rendering on all devices) and friendly interface should be incorporated in home and hackathon page/s 
 - Outcome of Task: xxx
 
 ### Task 5: Show registered user
 - Description: Create a field in "show hackathon page" to display all the user registered to a hackathon
-- How to Evaluate: All the users registered to a hackathon will be shown in "show hackathon page"
+- How to Evaluate: All the users registered for a hackathon will be shown in "show hackathon page"
 - Outcome of Task: xxx
 
 ### Task 6: Show Proposal
 - Description: Create a page to show all the proposals submitted for a hackathon
-- How to Evaluate: All the proposal submitted for a hackathon will be shown in a specific page
+- How to Evaluate: All the proposal submitted for a hackathon will be shown on a specific page
 - Outcome of Task: xxx
 
 

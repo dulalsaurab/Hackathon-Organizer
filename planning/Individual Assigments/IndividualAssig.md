@@ -43,32 +43,32 @@
 ### Task 1: Create Hackathon 
 - Description: Create a page for a User(as owner) or an Admin to create a Hackathon by putting required and optional attributes and description
 - How to Evaluate: A user as a owner or an admin can create a Hackathon by putting all attributes.
-- Outcome of Task: xxx
+- Outcome of Task: User can create a hackathon after loged in successfully.
 
 ### Task 2: Edit/Modify Hackathon 
 - Description: A User(as owner) can edit a Hackathon by putting required and optional attributes and description.
 - How to Evaluate: A user(as owner) can edit an already created Hackathon.
-- Outcome of Task: xxx
+- Outcome of Task: After creating a hackathon user/admin can modify the information of the hackathon
 
 ### Task 3: Search a Hackathon
 - Description: Create a view for a user to search the list of available hackathons. 
 - How to Evaluate: A user can search for a Hackathon by name, if found, hackathon or list of related hackathon(only public) is shown in this page
-- Outcome of Task: xxx
+- Outcome of Task: An advanced search option is available in the nav bar as well as in users profile to search for a hackathon with different attributes
 
 ### Task 4: Search a private Hackathon
 - Description: Create a view for a user to search a private hackathon i.e. via some token
 - How to Evaluate: A user can search for a private Hackathon, he should use some private token to search. This will return hackathon details if found. If he/she put wrong token then an error message will show up.
-- Outcome of Task: xxx
+- Outcome of Task: This task is still incomplete. We will add this feature when a hackathon is created.
 
 ### Task 5: Voting System
 - Description: Create a view where a user can give votes to all submitted proposals they would like to work on.
 - How to Evaluate: A user can give vote to all submitted proposals for a Hackathon.
-- Outcome of Task: xxx
+- Outcome of Task: The code for voting system is complete but due to integration issue it still not functional
 
 ### Task 6: Seed Required Data
 - Description: Data for sample proposal and sample Hackathon will be provided in the database.
 - How to Evaluate: The database will be designed as class diagram says with model validation and test data.
-- Outcome of Task: xxx
+- Outcome of Task: During the iteration we decided to seed only user data and then create the subsequent data in online. 
 
 ## Tasks: Saurab Dulal
 

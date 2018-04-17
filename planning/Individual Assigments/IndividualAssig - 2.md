@@ -63,8 +63,8 @@ Note: This is to separate a private or a public Hackathon so that to restrict pr
 - Outcome of Task: xxx
 
 ### Task 4: UI/UX
-- Description: Home page and hackathon pages should contains CSS and user friendly design
-- How to Evaluate: As part of this task, responsive design and friendly interface should be incorporated in home and hackathon page/s 
+- Description: Home page and hackathon pages should contains responsive and user friendly design
+- How to Evaluate: As part of this task, responsive design(good rendering on all devices) and friendly interface should be incorporated in home and hackathon page/s 
 - Outcome of Task: xxx
 
 ### Task 5: Show registered user

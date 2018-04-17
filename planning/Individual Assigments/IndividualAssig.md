@@ -75,37 +75,37 @@
 ### Task 1: Admin Login
 - Description: Create a login page for a web admin (this is separate than user login window). 
 - How to Evaluate: An admin will be able to log in to the backend with the credentials he/she is provided. There will be no provision for a user to register as an admin. This user is created manually in the system
-- Outcome of Task: xxx
+- Outcome of Task: A user can successfully login into the system with his/her email and password.
 
 ### Task 2: Admin backend: Display hackathon
 - Description: Create a view to display hackathons for admin
 - How to Evaluate: Brief information about the submitted hackathon will be displayed on this page along with the status i.e. approved or rejected
-    - Outcome of Task: xxx
+    - Outcome of Task: This features is still in progress. Right now an admin have all the features what a user has.
 
 ### Task 3: Admin backend: Display User
 - Description: Create a view to display all registered users for admin
 - How to Evaluate: Short info about all the registered user will be displayed in this view. 
-- Outcome of Task: xxx
+- Outcome of Task: Being loged in as admin, admin can see all the available user registered.
 
 ### Task 4: Admin backend: Delete/edit hackathon or a user
 - Description: Create a view for an admin to approve or unapprove a hackathon or a user(if needed)
 - How to Evaluate: Admin will be able to delete or approve hackathon or a user from the system. Unapproved user or hackathon
 should be removed from the database and from the display page after the certain retention period.  
-- Outcome of Task: xxx
+- Outcome of Task: Admin can delete a user from the system. In this iteration we provided the feature to delete user but not their hackathons. In the next iteration we will add the remaining features in the admin backend.
 
 **Note:** All the admin page is visible for a logged in admin only
 
 ### Task 5: Creating Proposal 
 - Description: A user can create one or many proposals if he/she wish. Besides all required attributes, he/she can add and fill customize form also.
 - How to Evaluate: A user can create one or many proposals for a Hackathon with customizing form as an added feature. This should populate appropriate fields in the database. 
-- Outcome of Task: xxx
+- Outcome of Task: A user can successfully create a proposal successfully. Right now we only provide to attributes during creating proposal. We will add the customizing form feature in the next iteration
 
 ### Task 6: Edit Proposal
 - Description: Create a view for a user to modify the submitted proposal  
 - How to Evaluate: A user will be able to modify his/her proposals. Though there will be time limitations till when he/she can perform this activity. This will be verified by the appropriate test cases.
-- Outcome of Task: xxx
+- Outcome of Task: All the codes for edit/update a proposal has been added. Due to integration issue during development this feature is in progress.
 
 ### Task 7: Registration for a Hackathon
 - Description: Once a user finds a hackathon private or public, this view will help him/her to register for it 
 - How to Evaluate: A user will be able to register for a Hackathon(private or public)
-- Outcome of Task: xxx
+- Outcome of Task: We added this feature as Joint Event in the Hackathon show page. This features is still in progress and we will complete it in the next iteration.

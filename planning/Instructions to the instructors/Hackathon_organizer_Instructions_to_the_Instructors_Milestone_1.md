@@ -8,7 +8,7 @@
 ## File Locations in Repository
 
 - Milestone 1 Individual Assignment Outcomes: comp7012-Hackathon-Organizer/planning/Individual Assigments/
-- Who-Did-What Document for Demo Video: 
+- Who-Did-What Document for Demo Video: /planning/whodidwhat
 - Up-to-Date Requirements and Design Artifacts:
   - User stories: /planning/UserStories/
   - Sitemap: planning/WebMap

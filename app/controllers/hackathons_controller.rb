@@ -32,6 +32,7 @@ class HackathonsController < ApplicationController
   # POST /hackathons
   # POST /hackathons.json
   def create
+    is_private = params[:is_private]
     @hackathon = Hackathon.new(hackathon_params)
 
     respond_to do |format|
@@ -77,7 +78,7 @@ class HackathonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hackathon_params
-      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id)
+      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id, :is_private)
       # params.fetch(:hackathon, {})
     end
 end 

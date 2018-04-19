@@ -1,25 +1,41 @@
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
 
 <style type="text/css">
     
 .abc{
-    width: 20%;
+    width: 50%;
     margin-right: 17%;
 }
 
 </style>
+
+<script>
+    function yesnoCheck(that) {
+        if (that.value == "private") {
+            document.getElementById("ifYes").style.display = "block";
+        } else {
+            document.getElementById("ifYes").style.display = "none";
+        }
+    }
+</script>
+
+
 <% if logged? %>
 <div class="container center">
+
 <div class="jumbotron center" style="margin-top: 1%; margin-left: 20%; margin-right: 20%;">
-<h3>Create New Hackathon</h3>
+<h3 style="margin-left: 10%;">Create New Hackathon</h3>
 <hr >
 <%= form_for (@hackathon), :html => {:class => "form-horizontal center"} do |f| %>
       <div class="form-group">
@@ -34,19 +50,40 @@
           <%= f.text_field :topic, class: "form-control" %>
         </div>
       </div>
+    <div class="form-group">
+      <%= f.label :topic, "Profile Image:", class: "col-md-3 control-label" %>  
 
+      <div class="fileinput fileinput-new col-md-7" data-provides="fileinput">
+          <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 317px; height: 150px;"></div>
+              <div>
+                <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+              </div>
+      </div>
+    </div>
       <div class="form-group">
         <%= f.label :description, "Description:", class: "col-md-3 control-label" %>
         <div class="col-md-7">
           <%= f.text_area :description, class: "form-control" %>
         </div>
       </div>
+      
       <div class="form-group">
         <%= f.label :number_of_participants, "No of Participants:", class: "col-md-3 control-label" %>
         <div class="col-md-7">
           <%= f.number_field :number_of_participants, class: "form-control" %>
         </div>
       </div>
+
+      <div class="form-group">
+        
+        <%= f.label :is_private, "Private:", class: "col-md-3 control-label" %>
+        <div class="col-md-3">     
+        <%= f.select :is_private, ['Yes', 'No']%>
+        </div>
+      </div> 
+
+      <hr style="border-color: #d5d5d5;">
      <div class="form-group">
         <%= f.label :start_date, "Start Date:", class: "col-md-3 control-label" %>
         <div class="col-md-7">
@@ -78,9 +115,22 @@
 
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :owner, :value => current_user.user_name %>
-        
-      <%= f.submit "Submit", class: "btn-sm btn-default btn-primary pull-right abc" %>  
-      <%= link_to 'Go Back', hackathons_path, class: "btn-sm btn-success pull-right abc" %>
+        <hr style="border-color: #d5d5d5;">
+      <div class="form-group" style="">
+              <div class="col-md-3 pull-left">
+              </div>
+              <div class="col-md-3 pull-left">
+                  <%= link_to 'Hackathon Page', hackathons_path, class: "btn btn-success" %>
+              </div>
+
+              <div class="col-md-6 pull-right">  
+                <%= f.submit "Submit", class: "btn btn-primary abc" %>  
+              </div>
+      </div>
+      
+      
+
+
 </div>
  <% end %>
 
@@ -101,6 +151,7 @@
     alert("You must be logged in to create Hackathon")
     window.location.href="/login" 
 </script>
+
 
 <% end %>
 

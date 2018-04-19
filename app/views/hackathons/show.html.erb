@@ -8,7 +8,8 @@
           <h2><%= @hackathon.title%></h2>
           <h4 class="text-center"><%= @hackathon.topic%></h4>
         </div>
-        <div class="col-md-2"><button class="btn-sm btn-primary">Follow us on <i class="fa fa fa-twitter"></i></button></div>
+        
+        <button class="btn btn-primary"><%= link_to " Follow us ", @hackathon.twitter_link, :class => "fa fa fa-twitter", style: "color: white" %></button>
       </div>
   </div>
 

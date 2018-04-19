@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419023501) do
+ActiveRecord::Schema.define(version: 20180419204322) do
 
   create_table "hackathons", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180419023501) do
     t.text "hackathon_venue"
     t.integer "user_id"
     t.string "is_private"
+    t.string "twitter_link"
     t.index ["user_id"], name: "index_hackathons_on_user_id"
   end
 

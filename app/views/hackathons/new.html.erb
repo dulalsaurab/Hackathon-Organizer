@@ -112,7 +112,12 @@
           <%= f.text_field :hackathon_venue, class: "form-control" %>
         </div>
       </div>
-
+      <div class="form-group">
+        <%= f.label :twitter_link, "Twitter Link:", class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :twitter_link, class: "form-control" %>
+        </div>
+      </div>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :owner, :value => current_user.user_name %>
         <hr style="border-color: #d5d5d5;">

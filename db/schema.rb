@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180416021925) do
-=======
 ActiveRecord::Schema.define(version: 20180420234233) do
 
   create_table "custome_tables", force: :cascade do |t|
@@ -23,7 +20,6 @@ ActiveRecord::Schema.define(version: 20180420234233) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
->>>>>>> be6fe195495b05eee76354106599bbc6b177ec9b
 
   create_table "hackathons", force: :cascade do |t|
     t.string "title"

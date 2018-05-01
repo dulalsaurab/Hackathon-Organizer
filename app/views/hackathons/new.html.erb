@@ -17,17 +17,11 @@
     width: 50%;
     margin-right: 17%;
 }
-
 </style>
 
 <script>
-    function yesnoCheck(that) {
-        if (that.value == "private") {
-            document.getElementById("ifYes").style.display = "block";
-        } else {
-            document.getElementById("ifYes").style.display = "none";
-        }
-    }
+    var count=-1;
+    var list = [];
 </script>
 
 
@@ -37,7 +31,7 @@
 <div class="jumbotron center" style="margin-top: 1%; margin-left: 20%; margin-right: 20%;">
 <h3 style="margin-left: 10%;">Create New Hackathon</h3>
 <hr >
-<%= form_for (@hackathon), :html => {:class => "form-horizontal center"} do |f| %>
+<%= form_for (@hackathon), :html => {:id=> "new_form", :class => "form-horizontal center"} do |f| %>
       <div class="form-group">
         <%= f.label :title, "Title:", class: "col-md-3 control-label" %>
         <div class="col-md-7">
@@ -120,24 +114,68 @@
       </div>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :owner, :value => current_user.user_name %>
+        <input type="hidden" class="t_count" name="total_count">
         <hr style="border-color: #d5d5d5;">
-      <div class="form-group" style="">
-              <div class="col-md-3 pull-left">
-              </div>
-              <div class="col-md-3 pull-left">
-                  <%= link_to 'Hackathon Page', hackathons_path, class: "btn btn-success" %>
-              </div>
+        
+        <h4 class="pull-left">Custom Fields 
+            <i class="fa fa-plus-circle" onclick="add_element();"></i></h4>
 
-              <div class="col-md-6 pull-right">  
-                <%= f.submit "Submit", class: "btn btn-primary abc" %>  
-              </div>
-      </div>
-      
-      
+        <div class="form-group">
+          <div id="cusfield"></div>
+        </div>
 
-
-</div>
+        <hr style="border-color: #d5d5d5;">
+            <div class="form-group" style="">
+                  <div class="col-md-3 pull-left">
+                  </div>
+                  <div class="col-md-3 pull-left">
+                      <%= link_to 'Hackathon Page', hackathons_path, class: "btn btn-success" %>
+                  </div>
+                  <div class="col-md-6 pull-right">  
+                    <%= f.submit "Submit", class: "btn btn-primary ", name:"submit" %>  
+                  </div>
+             </div>
+    </div>
  <% end %>
+
+<script type="text/javascript">
+    
+    function remove_ele(array, element) {
+        const index = array.indexOf(element);
+        array.splice(index, 1);
+        count = count-1 
+    }
+
+    function add_element(){
+        if (count > 10){
+          alert("You can add more than 6 question");
+          return;
+        }
+        var placeholder = ['Question', 'Answer'];
+        temp = ++count;
+        list.push(temp);
+        $("<div id="+(temp)+" class='row'><div class='col-md-7 col-md-offset-3'> \
+          <input name=cus_field"+(temp)+" type='text' class='form-control' placeholder="+(placeholder[0])+" ></div> \
+                <div class='col-md-1'><i class='fa fa-minus-circle' onclick='delete_element("+(temp)+");'></i></div><br /> \
+          </div></div>").appendTo('#cusfield');
+        temp = ++count;
+        list.push(temp);
+        $("<div id="+(temp)+" class='row'><div class='col-md-7 col-md-offset-3'> \
+          <textarea name=cus_field"+(temp)+" class='form-control' placeholder="+(placeholder[1])+" ></textarea></div> \
+                <div class='col-md-1'></div> \
+        </div>").appendTo('#cusfield');
+        $('.t_count').val(list);
+    }
+
+    function delete_element(index){
+        remove_ele(list, index)
+        remove_ele(list, index+1)
+        $("#"+(index)).remove();
+        $("#"+(index+1)).remove();
+        $('.t_count').val(list); 
+    }
+</script>
+
 
 <script type="text/javascript">
     $(function () {
@@ -156,8 +194,6 @@
     alert("You must be logged in to create Hackathon")
     window.location.href="/login" 
 </script>
-
-
 <% end %>
 
 

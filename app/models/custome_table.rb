@@ -1,0 +1,2 @@
+class CustomeTable < ApplicationRecord
+end

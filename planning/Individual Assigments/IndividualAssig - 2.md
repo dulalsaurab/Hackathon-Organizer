@@ -1,0 +1,107 @@
+# Individual Assignment Specifications
+
+- Team: Hackathon Organizer
+- Iteration: Iteration 1
+
+## Special Roles
+
+- Project Coordinator: Alejandro Gil Torres 
+- Quality Assurance Czar: Saurab Dulal
+- Video Demo Creators:
+  - Sajib Sen
+- Demo-Booth Operator: Saurab Dulal
+
+## Tasks: Alejandro Gil Torres
+
+### Task 1: Finish Profile view for user/admin
+- Description: Users and Admins will have access to the information on their profils as hackathons, followers, upcoming hackathons...
+- How to Evaluate: The information will be shown on the user profile page according to the user and his/her related content.
+- Outcome of Task: xxx 
+
+### Task 2: Responsive design
+- Description: [Log in]/[sign up],[User Profile],[Edit information], font sizes, switch between different devices will mantain a user friendly interface, will be responsive.
+- How to Evaluate: The UI will offer a  responsive designe.
+- Outcome of Task: xxx
+
+### Task 3: Change password
+- Description: A user will be able to change his/her password.
+- How to Evaluate: The user will be able to change the password succesfully.
+- Outcome of Task: xxx
+
+### Task 4: Followers system
+- Description: A user will be able to follow system and check the people that follows him.
+- How to Evaluate: A user will follow another user successfully and it will be added to the user following list
+- Outcome of Task: xxx
+
+### Task 5: Register Hackathon
+- Description: A user will be able to register to an event of his/her choice.
+- How to Evaluate: A user will be able to register to the event he/she selected and access the features of a registered user.
+- Outcome of Task: xxx
+
+### Task 6: Remove Admin from User List.
+- Description: A normal user won't be able to find admin users on the user list.
+- How to Evaluate: Admin users won't appear when a user makes search for another users.
+- Outcome of Task: xxx
+
+
+## Tasks: Saurab Dulal
+
+### Task 1: Submit Proposal
+- Description: Create a button to submit a proposal on the hackathon page
+- How to Evaluate: A logged in user should be able to submit a proposal for a hackathon
+- Outcome of Task: xxx
+
+### Task 2: Follow Hackathon
+- Description: Create a button to follow a hackathon
+- How to Evaluate: A logged in user should be able to follow a hackathon
+- Outcome of Task: xxx
+
+### Task 3: Customized "New Hackathon Page"
+- Description: "Create new hackathon" page should include a text field to specify private/public hackathon
+- How to Evaluate: A user should be able to create a private or public hackathon
+Note: This is to separate a private or a public hackathon so that to restrict private hackathon being displayed on the homepage. 
+- Outcome of Task: xxx
+
+### Task 4: UI/UX
+- Description: Homepage and hackathon pages should contain responsive and user-friendly design
+- How to Evaluate: As part of this task, responsive design(good rendering on all devices) and friendly interface should be incorporated in home and hackathon page/s 
+- Outcome of Task: xxx
+
+### Task 5: Show registered user
+- Description: Create a field in "show hackathon page" to display all the user registered to a hackathon
+- How to Evaluate: All the users registered for a hackathon will be shown in "show hackathon page"
+- Outcome of Task: xxx
+
+### Task 6: Show Proposal
+- Description: Create a page to show all the proposals submitted for a hackathon
+- How to Evaluate: All the proposal submitted for a hackathon will be shown on a specific page
+- Outcome of Task: xxx
+
+
+## Tasks: Sajib Sen
+
+### Task 1: Restrict private hackathon search
+- Description: A field in search new page to search a private hackathon with a token.
+- How to Evaluate: A user can not search a private hackathon without it's token. The user can only search the public hackathons.
+- Outcome of Task: xxx
+
+### Task 2: Create/Edit customize proposal 
+- Description: A User(as owner) can edit a Hackathon by putting required and optional attributes and description.
+- How to Evaluate: A user(as owner) can edit an already created Hackathon.
+- Outcome of Task: xxx
+
+### Task 3: Calculate total voting
+- Description: This task will calculate total given votes for a proposal and ranked those proposal on proposal index based in decending order
+- How to Evaluate: A user can vote for proposal and can see how the proposals are ranked according to the number of votes given.
+- Outcome of Task: xxx
+
+### Task 4: Delete proposal
+- Description: A user can delete a proposal which will remove all the corresponding proposal data from the database
+- How to Evaluate: After creating proposal when a user delete that proposal he/she can see the effect how all corresponding data changes automatically.
+- Outcome of Task: xxx
+
+### Task 5: UI for proposal pages
+- Description: UI sketches for proposal pages will be made uniform with other pages so that every page looks same
+- How to Evaluate: When a user create a proposal he/she can see that all pages style are uniform to look
+- Outcome of Task: xxx
+

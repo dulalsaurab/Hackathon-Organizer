@@ -1,3 +1,11 @@
+<style type="text/css">
+.text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
+
 <div class="container" style="margin-top:1%;">
     <div class = "content-section text-center">    
         <h1>Welcome to Hackathon Organizer</h1>
@@ -12,8 +20,8 @@
                     <hr >
                       <div class="caption">
                         <p style="margin-top: -3%;">A hackathon on</p>
-                        <h4 style="margin-top: -2%;"><%= hackathon.title %></h4>
-                        <p><%= hackathon.topic %></p>
+                        <h4 style="margin-top: -2%;" class="text"><%= hackathon.title %></h4>
+                        <p class="text"><%= hackathon.topic %></p>
                          <strong>Start Date: </strong><%= hackathon.start_date%><br />
                          <strong>Venue: </strong><%= hackathon.hackathon_venue%> <br />
                         <div style="margin-top: 2%;">

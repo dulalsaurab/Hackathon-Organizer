@@ -1,5 +1,3 @@
-
-<!-- <p id="notice"><%= notice %></p> -->
 <div class="container">
   <div class="jumbotron" style="margin-top: 2%; height: 50%;">
       <div class="row">
@@ -8,7 +6,8 @@
           <h2><%= @hackathon.title%></h2>
           <h4 class="text-center"><%= @hackathon.topic%></h4>
         </div>
-        <div class="col-md-2"><button class="btn-sm btn-primary">Follow us on <i class="fa fa fa-twitter"></i></button></div>
+        
+        <button class="btn btn-primary"><%= link_to " Follow us ", @hackathon.twitter_link, :class => "fa fa fa-twitter", style: "color: white" %></button>
       </div>
   </div>
 
@@ -65,7 +64,18 @@
        
       </div>
     </div>
-
+    <% if @customtable.ids.any?%>
+       <div class="thumbnail" id="addinfo" style="">
+        <div class="caption">
+          <h3 style="margin-bottom: 1%;">Additional Information</h3>
+          <% @customtable.each do |ct| %>
+            <h5 style="color: #7f8c8d;">Q. <%= ct.question %> ?</h5>
+            <i style="margin-left: 1%;">- <%= ct.answer %></i>
+            <br />
+          <% end %>
+        </div>
+      </div>
+    <%end%>
 
 <% if logged? %>
   <% if @hackathon.user_id == current_user.id %>
@@ -81,8 +91,8 @@
     <!-- created by sajib -->
     </div>
     
-  </div>
-  </div>
 </div>
+</div>
+
 
 

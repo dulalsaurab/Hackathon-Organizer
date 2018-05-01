@@ -5,7 +5,7 @@ class HackathonsController < ApplicationController
   # GET /hackathons.json
   def index
     @hackathons = Hackathon.search(params[:search]) 
-    
+
     if defined?(current_user.id) && (current_user.id != '') then 
        @hackathons = Hackathon.where(:user_id => current_user.id)
     else
@@ -18,6 +18,7 @@ class HackathonsController < ApplicationController
   # GET /hackathons/1
   # GET /hackathons/1.json
   def show
+    @customtable = CustomeTable.where(:identifier_id => @hackathon.id)
   end
 
   # GET /hackathons/new
@@ -32,8 +33,10 @@ class HackathonsController < ApplicationController
   # POST /hackathons
   # POST /hackathons.json
   def create
+    is_private = params[:is_private]
+    custom_count = params[:total_count]
+  
     @hackathon = Hackathon.new(hackathon_params)
-
     respond_to do |format|
       if @hackathon.save
         format.html { redirect_to @hackathon, notice: 'Hackathon was successfully created.' }
@@ -43,6 +46,17 @@ class HackathonsController < ApplicationController
         format.json { render json: @hackathon.errors, status: :unprocessable_entity }
       end
     end
+    
+    list = custom_count.split(",")
+    list.each_slice(2){ |x| 
+      customtable = CustomeTable.new()
+      customtable.question = params["cus_field"+x[0].to_s]
+      customtable.answer = params["cus_field"+x[1].to_s]
+      customtable.identifier_id = @hackathon.id
+      customtable.identifier = @hackathon
+      customtable.save!
+    } 
+
   end
 
   # PATCH/PUT /hackathons/1
@@ -77,7 +91,8 @@ class HackathonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hackathon_params
-      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id)
+      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id, :is_private, :twitter_link)
       # params.fetch(:hackathon, {})
     end
+
 end 

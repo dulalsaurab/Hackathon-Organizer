@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   post '/signup',  to: 'users#create'
 
   get 'hackathons/all_hackathons', to: 'hackathons#all', as: 'all_hackathons'
-
   get 'hackathons', to: 'hackathons#index', as: 'hackathons'
+  post 'hackathons/joinevent', to: 'registrations#joinevent', as: 'joinevent'
   get 'hackathons/new', to: 'hackathons#new', as: 'new_hackathon'
   post 'hackathons', to: 'hackathons#create'
   get 'hackathons/:id', to: 'hackathons#show', as: 'hackathon'
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   put 'hackathons/:id', to: 'hackathons#update'
   patch 'hackathons/:id', to: 'hackathons#update'
   delete 'hackathons/:id', to: 'hackathons#destroy'
+  
 
   get 'proposals', to:'proposals#index', as:'proposals'
   get 'proposals/:id', to: 'proposals#show', as: 'proposal'

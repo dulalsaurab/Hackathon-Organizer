@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user.admin?
-      @hackathons = Hackathon.paginate(page: params[:page], :per_page => 10)
-      @users = User.paginate(page: params[:page], :per_page => 10)
+      @hackathons = Hackathon.paginate(page: params[:page], :per_page => 9)
+      @users = User.paginate(page: params[:page], :per_page => 9)
     end
 
   end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page], :per_page => 10)
+    @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:user_name, :email, :description, :password, :password_confirmation)
     end
     
     def logged_in_only

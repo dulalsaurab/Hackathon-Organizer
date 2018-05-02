@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20180502073951) do
     t.boolean "admin"
     t.string "password_digest"
     t.string "remember_me"
+    t.text "description"
   end
 
   create_table "votes", force: :cascade do |t|

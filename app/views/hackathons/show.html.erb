@@ -98,13 +98,13 @@ function joinevent(){
     <%end%>
 
 <% if logged? %>
-  <% if @hackathon.user_id == current_user.id %>
+  <% if @hackathon.user_id == current_user.id || current_user.admin? %>
     <%= link_to 'Edit Hackathon', edit_hackathon_path(@hackathon), class: "btn-sm btn-success" %>
+  <% else %>
+    <%= link_to 'Submit A Proposal', "#", class: "btn-sm btn-success pull-right"%>
   <% end %>
-<% else %>
-    <%= link_to 'Submit A Proposal', hackathons_path, class: "btn-sm btn-success pull-right"%>
 <% end %>
-    <%= link_to 'Go To Main Page', hackathons_path, class: "btn-sm btn-primary   "%>
+    <%= link_to 'Go To Main Page', root_url, class: "btn-sm btn-primary   "%>
     </div>
     
 </div>

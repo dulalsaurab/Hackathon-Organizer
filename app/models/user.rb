@@ -26,6 +26,8 @@ class User < ApplicationRecord
     
     has_secure_password
     validates :password, presence: true, length: { minimum: 8 }
+
+    validates :description, length: { maximum: 140}
     
     def follow(other_user)
         following << other_user

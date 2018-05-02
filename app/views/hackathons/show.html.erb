@@ -78,7 +78,7 @@
     <%end%>
 
 <% if logged? %>
-  <% if @hackathon.user_id == current_user.id %>
+  <% if @hackathon.user_id == current_user.id || current_user.admin? %>
     <%= link_to 'Edit Hackathon', edit_hackathon_path(@hackathon), class: "btn-sm btn-success" %>
   <% end %>
 <% else %>

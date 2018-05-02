@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user.admin?
-      @hackathons = Hackathon.paginate(page: params[:page], :per_page => 10)
-      @users = User.paginate(page: params[:page], :per_page => 10)
+      @hackathons = Hackathon.paginate(page: params[:page], :per_page => 9)
+      @users = User.paginate(page: params[:page], :per_page => 9)
     end
 
   end

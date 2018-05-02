@@ -1,5 +1,6 @@
 <% provide(:title, @user.user_name) %>
 <%unless @user.admin?%>
+<div class="container">
 <div class="row">
   <aside class="col-md-3">
     <section class="stats col-md-offset-4">
@@ -42,23 +43,21 @@
   </div>
   
 </div>
+</div>
 <% else %>
+<div class="container">
+<div class="row col-md-12">
+<h1 style = "text-align: center;">
+  ADMIN PANEL
+</h1>
+</div>
 <div class="row">
-  <aside class="col-md-2">
-    <section class= "col-md-offset-2">
-      <h1>
-        <%= @user.user_name %>
-      </h1>
-      </br>
-    </section>
-    <section class="stats col-md-offset-2">
-      <%= render 'common/stats' %>
-    </section>
-  </aside>
-  <div class="col-md-6">
-    <h3>
+
+  <div class="col-md-8">
+    <h3 style = "text-align: left;">
       List of Hackathons | <%= @hackathons.count %>
     </h3>
+    </br>
     <ul style="list-style-type:none;">
     <% @hackathons.each do |hackathon| %>
       <li>
@@ -74,13 +73,14 @@
     <h3>
       List of Users | <%= @users.count %>
     </h3>
+    </br>
     <ul style="list-style-type:none;">
     <% @users.each do |user| %>
     <% unless user.admin? %>
     <li>
         <%= link_to user.user_name, user, class: "btn btn-info" %>
         
-        <% if current_user.admin? && !current_user?(user) %>
+        <% if current_user.admin? && !current_user?(user) %> |
         <%= link_to "delete", user, method: :delete,
                                     data: { confirm: "Are you sure?" } %>
 
@@ -93,5 +93,6 @@
     </ul>
     <%= will_paginate %>
   </div>
+</div>
 </div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420234233) do
+ActiveRecord::Schema.define(version: 20180502120333) do
 
   create_table "custome_tables", force: :cascade do |t|
     t.string "question"
@@ -40,13 +40,25 @@ ActiveRecord::Schema.define(version: 20180420234233) do
 
   create_table "proposals", force: :cascade do |t|
     t.string "title"
-    t.text "description"
-    t.text "customForm"
-    t.integer "votes"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "hackathon_id"
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_weighted_score", default: 0
+    t.integer "cached_weighted_total", default: 0
+    t.float "cached_weighted_average", default: 0.0
+    t.index ["cached_votes_down"], name: "index_proposals_on_cached_votes_down"
+    t.index ["cached_votes_score"], name: "index_proposals_on_cached_votes_score"
+    t.index ["cached_votes_total"], name: "index_proposals_on_cached_votes_total"
+    t.index ["cached_votes_up"], name: "index_proposals_on_cached_votes_up"
+    t.index ["cached_weighted_average"], name: "index_proposals_on_cached_weighted_average"
+    t.index ["cached_weighted_score"], name: "index_proposals_on_cached_weighted_score"
+    t.index ["cached_weighted_total"], name: "index_proposals_on_cached_weighted_total"
     t.index ["hackathon_id"], name: "index_proposals_on_hackathon_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
@@ -70,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180420234233) do
     t.text "hackathon_venue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "is_private"
   end
 
   create_table "users", force: :cascade do |t|

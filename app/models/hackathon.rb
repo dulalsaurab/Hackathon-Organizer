@@ -1,6 +1,7 @@
 class Hackathon < ApplicationRecord
     belongs_to :user
     has_many :proposals
+    
 
     def self.search(search)
         if search

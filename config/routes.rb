@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   #get 'sessions/new'
 
   root :to => "homepage#home"
@@ -29,6 +30,10 @@ Rails.application.routes.draw do
   put 'hackathons/:id', to: 'hackathons#update'
   patch 'hackathons/:id', to: 'hackathons#update'
   delete 'hackathons/:id', to: 'hackathons#destroy'
+  get 'hackathons/:id/allProposal', to: 'hackathons#allProposal', as: 'allProposal_hackathon'
+
+  
+=begin
 #Created by sajib
   get 'proposals', to:'proposals#index', as:'proposals'
   
@@ -40,18 +45,21 @@ Rails.application.routes.draw do
   patch 'proposals/:id', to: 'proposals#update'
   delete 'proposals/:id', to: 'proposals#destroy'
   
- 
+=end
 
  
   resources :hackathons 
   resources :searches
   
-  
-  resources :proposals do 
+
+ 
+  resources :proposals do
+     
     member do
-      put "like", to: "proposals#upvote"
-      put "dislike", to: "proposals#downvote"
+      put "like" => "proposals#upvote"
+      put "dislike" => "proposals#downvote"
     end
   end
+
 #created by sajib
 end

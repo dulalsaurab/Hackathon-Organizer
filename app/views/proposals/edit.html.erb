@@ -1,50 +1,31 @@
-<h1>Editing Proposal</h1>
+<h3>Create New Proposal</h3>
+<hr >
+<%= form_for (@proposal), :html => {:class => "form-horizontal center"} do |f| %>
+      <div class="form-group">
+        <%= f.label :title, "Title:", class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
 
-<% if @proposal.errors.any? %>
-<div style="background-color: #FF0000">
-<p>
-    Please fix the following errors:
-</p>
-<ul>
-   <% @proposal.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-   <% end %>
-</ul>
+      <div class="form-group">
+        <%= f.label :description, "Description:", class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+      
+      <hr style="border-color: #d5d5d5;">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :hackathon_id, :value => params[:format] %>
+      <%= f.submit "Submit", class: "btn-sm btn-default btn-primary pull-right abc" %>  
+
+      
+      
 </div>
-<% end %>
+ <% end %>
+ 
+ <%= link_to 'Go Back', proposals_path(@proposal.hackathon_id), class: "btn-sm btn-success pull-right abc" %>
 
-
-
-
-<%= form_for @proposal do |f| %>
-    <p> 
-        User Id<br>
-        <%= f.text_field :userId %><br>
-    </p>
-
-    <p>
-        Title<br>
-        <%= f.text_field :title %><br>
-    </p>
-    <p> 
-        Hackathon Name<br>
-        <%= f.text_field :hkId %><br>
-    </p>
-
-
-
-    <p>
-        Description<br>
-        <%= f.text_field :description %><br>
-    </p>
-
-
-
-    <p>
-    <%= f.submit "Create Proposal" %>
-    </p>
-<% end %>
-
-<p>
-
-<%= link_to 'Back', proposals_path %>
+</tbody>
+ 

@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class HackathonsControllerTest < ActionDispatch::IntegrationTest
+  
   setup do
     @hackathon = hackathons(:one)
   end

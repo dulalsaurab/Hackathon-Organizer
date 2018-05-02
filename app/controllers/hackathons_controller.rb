@@ -14,6 +14,9 @@ class HackathonsController < ApplicationController
     end 
     
   end
+  def allProposal
+    @hackathon = Hackathon.find(params[:id])
+  end
 
   # GET /hackathons/1
   # GET /hackathons/1.json

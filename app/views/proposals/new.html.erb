@@ -54,6 +54,7 @@
     </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.hidden_field :hackathon_id, :value => params[:format] %>
+    
     <%= f.submit "Submit", class: "btn-sm btn-default btn-primary pull-right abc" %>  
     <%= link_to 'Go Back', proposals_path, class: "btn-sm btn-success pull-right abc" %>
 </div>

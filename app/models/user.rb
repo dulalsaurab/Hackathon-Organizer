@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :hackathons
     has_many :proposals
+    acts_as_voter
 
     attr_accessor :remember_token
     before_save { self.email = email.downcase }

@@ -125,7 +125,7 @@ followers.each { |follower| follower.follow(user) }
     owner = 2
     start_date = '2012/03/11'
     end_date = '2012/03/11'
-    hackathon_venue = Faker::Lorem.sentence(3)
+    hackathon_venue = "here"
     Hackathon.create!(title: title,
                  topic: topic,
                  description: description,

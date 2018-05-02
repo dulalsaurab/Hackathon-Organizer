@@ -7,6 +7,7 @@
         <li><%= link_to "Home", root_path %></li>
         <% if logged? %>
           <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Hachathons", "#" %></li>
           <li><%= link_to 'Create New Hackathon', new_hackathon_path %></li>
           <li><%= link_to "Profile", current_user %></li>
           <li><%= link_to "Settings", edit_user_path(current_user) %></li>

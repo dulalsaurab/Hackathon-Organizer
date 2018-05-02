@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502072531) do
+ActiveRecord::Schema.define(version: 20180502073951) do
 
   create_table "custome_tables", force: :cascade do |t|
     t.string "question"
@@ -59,10 +59,9 @@ ActiveRecord::Schema.define(version: 20180502072531) do
 
   create_table "registrations", force: :cascade do |t|
     t.integer "userId"
-    t.integer "HkId"
+    t.integer "hackathon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type"
   end
 
   create_table "relationships", force: :cascade do |t|

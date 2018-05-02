@@ -3,14 +3,19 @@
 
 <ul class="users" style="list-style-type:none;">
   <% @users.each do |user| %>
+    <% unless user.admin? %>
     <li>
-      <%= link_to user.user_name, user, class: "btn btn-info" %>
-      <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
-      <% end %>
+        <%= link_to user.user_name, user, class: "btn btn-info" %>
+        
+        <% if current_user.admin? && !current_user?(user) %>
+        <%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
+
+        <% end %>
+      
     </li>
     </br>
+    <% end %>
   <% end %>
 </ul>
 <%= will_paginate %>

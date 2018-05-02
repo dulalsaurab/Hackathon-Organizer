@@ -1,65 +1,16 @@
-<div class=" col-md-offset-3">
-<p id="notice"><%= notice %></p>
-
-<h2 style= "text-align:left;">
-  
-  <% if current_user.admin? && !current_user?(@user) %>
-  Hello 
-    <strong>ADMIN. </strong>
-</h2>
-    <p>
-      Welcome to <strong><%= @user.user_name %> </strong>profile!
-    </p>
-  <%else%>
-<h2 style= "text-align:left;">
-  Hello
-  <strong>
-  <%= @user.user_name %>.
-  </strong>
-  
-</h2>
-
-  <p>
-    <strong>Welcome to your profile!</strong>
-  </p>
-
-  
-<div class="col-md-4">
-  <%= link_to "My Hackathons", hackathons_path, class: "btn btn-primary" %>
-</div>
-<div class="col-md-4">
-  <%= link_to "Search", users_path, class: "btn btn-primary" %>
-</div>
-<div class="col-md-4">
-  <a class="btn btn-primary" href="#">Followers</a>
-</div>
-</br></br>
-</br></br>
-</br></br>
-
-  <% end %>
-
-<!--
-<p>
-  <strong>Passworld:</strong>
-  <%= @user.passworld %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
--->
-</br>
-
-
-
-<h3 style="text-align:left;">Coming soon...</h2>
-<h4>List of Hackathons that <%= @user.user_name %>. is registered!</h3>
-<h4>List of Users that <%= @user.user_name %> is registered</h3>
-
-<% if current_user.admin? && !current_user?(@user) %>
-    Do you want to <%= link_to "DELETE", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>, this user?
-<% end %>
+<% provide(:title, @user.user_name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= @user.user_name %>
+      </h1>
+    </section>
+    <section class="stats">
+      <%= render 'common/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <%= render 'follow_form' if logged? %>
+  </div>
 </div>

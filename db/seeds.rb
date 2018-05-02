@@ -31,18 +31,22 @@ proposal_2.hackathon= hackathon_1
 proposal_1.hackathon= hackathon_2
 proposal_2.hackathon= hackathon_2
 
-#user_1.save!
-#user_2.save!
-#user_3.save!
+user_1.save!
+user_2.save!
+user_3.save!
 #admin.save!
 hackathon_1.save!
 hackathon_2.save!
 =end
 
-#user_1 = User.new(user_name: 'Alex', email: 'aaaa@aaa.com', passworld: 'topsecret' )
-#user_2 = User.new(user_name: 'Saurab', email: 'aaaa@aaa.com', passworld: 'topsecret' )
-#user_3 = User.new(user_name: 'Sajib', email: 'aaaa@aaa.com', passworld: 'topsecret' )
+user_1 = User.new(user_name: 'Alex', email: 'aaaa@aaa.com', password: 'topsecret',password_confirmation: 'topsecret' )
+user_2 = User.new(user_name: 'Saurab', email: 'aaaab@aaa.com', password: 'topsecret',password_confirmation: 'topsecret' )
+user_3 = User.new(user_name: 'Sajib', email: 'aaaac@aaa.com', password: 'topsecret',password_confirmation: 'topsecret' )
 #admin = User.new(user_name: 'Admin', email: 'aaaa@aaa.com', passworld: 'topsecretadmin', admin: true )
+
+user_1.save!
+user_2.save!
+user_3.save!
 
 User.create!(user_name:  "Admin",
              email: "admin@admin.com",
@@ -50,7 +54,7 @@ User.create!(user_name:  "Admin",
              password_confirmation: "password",
              admin: true)
 
-10.times do |n|
+20.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@hkorg.com"
     password = 'password'
@@ -91,7 +95,7 @@ hackathon_2.user= user_2
 
 hackathon_2.user= user_1
 hackathon_1.user= user_3
-hackathon_1.user= admin
+#hackathon_1.user= admin
 
 
 
@@ -101,3 +105,12 @@ hackathon_2.save!
 proposal_1.save!
 proposal_2.save!
 # hackathon_1.save!
+
+#following relations
+# Following relationships
+users = User.all
+user  = users.first
+following = users[2..20]
+followers = users[3..15]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

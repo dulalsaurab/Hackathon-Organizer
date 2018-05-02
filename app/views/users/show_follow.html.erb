@@ -11,7 +11,7 @@
   </aside>
   <div class="col-md-8">
     <h3><%= @title %></h3>
-      <ul class="users follow">
+      <ul class="users follow" style="list-style-type:none;">
         <%= @users.each do |user| %>
           <% unless user.admin?%>
           <li>

@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    if @user.admin?
+      @hackathons = Hackathon.paginate(page: params[:page], :per_page => 10)
+      @users = User.paginate(page: params[:page], :per_page => 10)
+    end
+
   end
 
   # GET /users/new
@@ -70,7 +75,7 @@ class UsersController < ApplicationController
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page], :per_page => 10)
+    @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
 

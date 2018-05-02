@@ -63,6 +63,8 @@ User.create!(user_name:  "Admin",
                  password: password,
                  password_confirmation: password)
 end
+
+
 hackathon_1 = Hackathon.new(title: 'First one ever', topic: 'fantasy', description: 'The coolest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "west minister")
 
 hackathon_2 = Hackathon.new(title: 'Second one ever', topic: 'Tech', description: 'The hotest', owner: 1, start_date: '2012/03/11', end_date: '2012/03/11', hackathon_venue: "east minister")
@@ -114,3 +116,22 @@ following = users[2..20]
 followers = users[3..15]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+
+20.times do |n|
+    title = Faker::Lorem.sentence(5)
+    topic = Faker::Lorem.sentence(5)
+    description = Faker::Lorem.sentence(20)
+    owner = 2
+    start_date = '2012/03/11'
+    end_date = '2012/03/11'
+    hackathon_venue = Faker::Lorem.sentence(10)
+    Hackathon.create!(title: title,
+                 topic: topic,
+                 description: description,
+                 owner: 1,
+                 start_date: start_date,
+                 end_date: end_date,
+                 hackathon_venue: hackathon_venue,
+                 user: user_1)
+end

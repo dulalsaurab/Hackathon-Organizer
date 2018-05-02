@@ -77,9 +77,13 @@ class HackathonsController < ApplicationController
   # DELETE /hackathons/1.json
   def destroy
     @hackathon.destroy
-    respond_to do |format|
-      format.html { redirect_to hackathons_url, notice: 'Hackathon was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.admin?
+      redirect_to current_user
+    else
+      respond_to do |format|
+        format.html { redirect_to hackathons_url, notice: 'Hackathon was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

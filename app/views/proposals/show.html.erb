@@ -9,9 +9,6 @@
   
   <th style="width:30%" >Title</th>
   <th style="width:30%" >Description</th>
-  
-  
-
 
 </tr>
 </thead>
@@ -21,8 +18,6 @@
 <tr>
 <td style="width:30%"><%= @proposal.title%></td>
 <td style="width:30%"><%= @proposal.description%></td>
-
-
 
 <td class="btn btn-default btn-sm" >
 <%= link_to like_proposal_path(@proposal), method: :put do %> 

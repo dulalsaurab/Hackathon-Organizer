@@ -52,7 +52,7 @@ function joinevent(){
     </div>
         <div class="thumbnail" style="">
       <div class="caption">
-        <h3>Number of Participants</h3>
+        <h3>No of groups</h3>
         <%= @hackathon.number_of_participants%>
        
       </div>
@@ -63,8 +63,6 @@ function joinevent(){
         <% @reguser.each do |p| %>
           <%= p.userId %>
         <% end %>
-       
-        <i class="fa fa-user-circle" style="font-size:40px;color:#95a5a6;"></i>
         <!-- <img src="" alt="Avatar" style="border-radius: 50%;"> -->
       </div>
     </div>
@@ -104,17 +102,13 @@ function joinevent(){
     
 
 <% if logged? %>
-  
-
   <% if @hackathon.user_id == current_user.id || current_user.admin? %>
     <%= link_to 'Edit Hackathon', edit_hackathon_path(@hackathon), class: "btn-sm btn-success" %>
   <% else %>
-    <%= link_to 'Submit A Proposal', "#", class: "btn-sm btn-success pull-right"%>
+    <%= link_to 'Submit A Proposal', new_proposal_path(@hackathon.id), class: "btn-sm btn-success pull-right"%>
   <% end %>
 <% end %>
     
-
-    <%= link_to 'Create New Proposal', new_proposal_path(@hackathon.id), class: "btn-sm btn-primary " %>
     <%= link_to 'Vote for Proposals', proposals_path(@hackathon.id), class: "btn-sm btn-primary " %>
     <%= link_to 'All Posted Proposals', proposals_path(@hackathon.id), class: "btn-sm btn-primary " %>
     <!-- created by sajib -->

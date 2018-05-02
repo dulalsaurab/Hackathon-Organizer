@@ -5,7 +5,6 @@ class HackathonsController < ApplicationController
   # GET /hackathons.json
   def index
     @hackathons = Hackathon.search(params[:search]) 
-
     if defined?(current_user.id) && (current_user.id != '') then 
        @hackathons = Hackathon.where(:user_id => current_user.id)
     else
@@ -22,7 +21,10 @@ class HackathonsController < ApplicationController
   # GET /hackathons/1
   # GET /hackathons/1.json
   def show
+  
     @customtable = CustomeTable.where(:identifier_id => @hackathon.id)
+    @reguser = Registration.where(:hackathon_id => @hackathon.id)
+    
   end
 
   # GET /hackathons/new

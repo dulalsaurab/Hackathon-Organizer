@@ -1,26 +1,28 @@
 <% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
+    <section class="user_info col-md-offset-4">
       <h1><%= @user.user_name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <span><%= link_to "View my Profile", @user, class: "btn btn-info" %></span>
+      </br>
     </section>
-    <section class="stats">
+    <section class="stats stats col-md-offset-4">
+    </br>
       <%= render 'common/stats' %>
     </section>
   </aside>
   <div class="col-md-8">
     <h3><%= @title %></h3>
-      <ul class="users follow" style="list-style-type:none;">
-        <%= @users.each do |user| %>
-          <% unless user.admin?%>
-          <li>
-              <%= link_to user.user_name, user, class: "btn btn-info" %>
-          </li>
-          </br>
-          <% end %>
-        <% end %>
-      </ul>
-      <%= will_paginate %>
+      <ul style="list-style-type:none;">
+    <% @users.each do |user| %>
+      <% unless user.admin? %>
+      <li>
+          <%= link_to user.user_name, user, class: "btn btn-info" %>
+      </li>
+      </br>
+      <% end %>
+    <% end %>
+      
+    <%= will_paginate %>
   </div>
 </div>

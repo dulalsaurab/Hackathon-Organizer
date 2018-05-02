@@ -2,25 +2,50 @@
 <%unless @user.admin?%>
 <div class="row">
   <aside class="col-md-4">
-    <section>
+    <section class="stats col-md-offset-4">
       <h1>
         <%= @user.user_name %>
       </h1>
+      </br>
+    </section>
+    <section class="stats col-md-offset-4" >
+      <%= render 'common/stats' %>
+      </br>
+    </section>
+    <% if !current_user?(@user)%>
+    <section class = "col-md-offset-4">
+      <%= link_to "My Hackathons", hackathons_path, class: "btn btn-info" %>
+      
+    </section>
+    <% end %>
+    <section class = "col-md-offset-4">
+      </br>
+      <%= link_to 'Create New Hackathon', new_hackathon_path, class: "btn btn-info" %>
+      
+    </section>
+    <section  class = "col-md-offset-4">
+    </br>
+      <%= render 'follow_form' if logged? %>
     </section>
   </aside>
-  <div class="col-md-8">
-    <%= render 'follow_form' if logged? %>
+  <div class="col-md-4">
+    
+    <div>
+      <h2>List of Hackathons the user is registered</h2>
+    </div>
   </div>
+  
 </div>
 <% else %>
 <div class="row">
   <aside class="col-md-2">
-    <section>
+    <section class= "col-md-offset-2">
       <h1>
         <%= @user.user_name %>
       </h1>
+      </br>
     </section>
-    <section class="stats">
+    <section class="stats col-md-offset-2">
       <%= render 'common/stats' %>
     </section>
   </aside>

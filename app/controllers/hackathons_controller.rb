@@ -15,6 +15,10 @@ class HackathonsController < ApplicationController
     
   end
 
+  def all
+    @hackathons = Hackathon.paginate(page: params[:page], :per_page => 6)
+  end
+
   # GET /hackathons/1
   # GET /hackathons/1.json
   def show

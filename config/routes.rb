@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
+  get 'hackathons/all_hackathons', to: 'hackathons#all', as: 'all_hackathons'
+
   get 'hackathons', to: 'hackathons#index', as: 'hackathons'
   get 'hackathons/new', to: 'hackathons#new', as: 'new_hackathon'
   post 'hackathons', to: 'hackathons#create'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502035630) do
+ActiveRecord::Schema.define(version: 20180502072531) do
 
   create_table "custome_tables", force: :cascade do |t|
     t.string "question"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180502035630) do
     t.boolean "admin"
     t.string "password_digest"
     t.string "remember_me"
+    t.text "description"
   end
 
   create_table "votes", force: :cascade do |t|

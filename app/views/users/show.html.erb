@@ -1,11 +1,17 @@
 <% provide(:title, @user.user_name) %>
 <%unless @user.admin?%>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-3">
     <section class="stats col-md-offset-4">
       <h1>
         <%= @user.user_name %>
       </h1>
+      </br>
+    </section>
+    <section class="stats col-md-offset-4">
+      <p>
+        <%= @user.description %>
+      </p>
       </br>
     </section>
     <section class="stats col-md-offset-4" >

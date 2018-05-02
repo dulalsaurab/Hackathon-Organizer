@@ -1,92 +1,100 @@
 class ProposalsController < ApplicationController
-    #before_action :set_user, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-    def show
-        @proposal = Proposal.find(params[:id])
-        #render 'proposals/show.html.erb'
-    end
-    def index
-        @proposals = Proposal.all 
-        #render 'proposals/index.html.erb'
-    end
+  before_action :set_proposal, only: [:show, :edit, :update,  :upvote, :downvote]
 
-
-    def new
-        @proposal = Proposal.new
-        #render 'proposals/new.html.erb'
-    end
+  # GET /proposals
+  # GET /proposals.json
+  def index
+    @hackathon = Hackathon.find_by id: params["hackathon_id"]
+    @proposal = Proposal.all.order(:cached_votes_score => :desc)
     
-    def create
-        @proposal.new(userId: params[:proposal][:userId],
-                       title: params[:proposal][:title],
-                       hkId: params[:proposal][:hkId],
-                       description: params[:proposal][:description],
-                       customForm: params[:proposal][:customForm],
-                       votes: params[:proposal][:votes]
-                       )
-        #@proposal.user= current_user
-        
-        if @proposal.save
-            
-            flash[:notice] = "proposals saved successfully!"   
-            redirect_to proposals_url
-        else
-            flash.now[:alert] = "proposals save failed!"
-            render :new
-        end
-    end
-    def upvote 
-        @proposal = Proposal.find(params[:id])
-        @proposal.upvote_by(@proposal.user)
-        
-        redirect_to proposals_url
-    end  
-   
-    def downvote
-        @proposal = Proposal.find(params[:id])
-        @proposal.downvote_by(@proposal.user)
-        
-        redirect_to proposals_url
-    end
-    
-    
-   
+    #@proposals=Proposal.find_by id: params["hackathon_id"]
 
     
     
-    def edit
-        @proposal = Proposal.find(params[:id])
-        #render 'proposals/edit.html.erb'
-    end
+
+   end 
+
+  # GET /proposals/1
+  # GET /proposals/1.json
+  def show
+    #@proposal = Proposal.where(:identifier_id => @proposal.id)
+    @proposals=Proposal.find(params[:id])
+  end
+
+
+
+  # GET /proposals/new
+  def new
+    @proposal = Proposal.new
+  end
+
+
+  def upvote 
+    @proposal = Proposal.find(params[:id])
+    @proposal.upvote_by(@proposal.user, :vote_weight => 3)
     
-    def update
-        @proposal = Proposal.find(params[:id])
-        @proposal.new(userId: params[:proposal][:userId],
-                       title: params[:proposal][:title],
-                       hkId: params[:proposal][:hkId],
-                       description: params[:proposal][:description],
-                       customForm: params[:proposal][:customForm],
-                       votes: params[:proposal][:votes]
-                       )
-            flash[:notice] = "proposals saved successfully!"
-            redirect_to proposals_url
-        else
-            flash[:alert] = "proposals save failed!"
-            render :edit
-        end
+    redirect_to proposal_url
+  end  
+
+  def downvote
+    @proposal = Proposal.find(params[:id])
+    @proposal.downvote_by(@proposal.user)
+    
+    redirect_to proposal_url
+  end
+
+  # GET /proposals/1/edit
+  def edit
+  end
+
+  # POST /proposals
+  # POST /proposals.json
+  def create
+    @proposal = Proposal.new(proposal_params)
+
+    respond_to do |format|
+      if @proposal.save
+        format.html { redirect_to @proposal, notice: 'Proposal was successfully created.' }
+        format.json { render :show, status: :created, location: @proposal }
+      else
+        format.html { render :new }
+        format.json { render json: @proposal.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /proposals/1
+  # PATCH/PUT /proposals/1.json
+  def update
+    respond_to do |format|
+      if @proposal.update(proposal_params)
+        format.html { redirect_to @proposal, notice: 'Proposal was successfully updated.' }
+        format.json { render :show, status: :ok, location: @proposal }
+      else
+        format.html { render :edit }
+        format.json { render json: @proposal.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /proposals/1
+  # DELETE /proposals/1.json
+  def destroy
+    @proposal.destroy
+    respond_to do |format|
+      format.html { redirect_to proposals_url, notice: 'Proposal was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_proposal
+      @proposal = Proposal.find(params[:id])
     end
 
-    def destroy
-        begin
-            @proposal = Proposal.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
-            flash.now[:alert] = "proposals destruction failed!"
-            redirect_to proposals_url and return
-        end
-        if @proposal.destroy
-            flash[:notice] = "proposals destroyed successfully!"
-           redirect_to proposals_url
-        else
-            flash.now[:alert] = "proposals destruction failed!"
-            redirect_to proposals_url
-        end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def proposal_params
+      params.require(:proposal).permit(:title, :description, :user_id, :hackathon_id)
+    end
 end

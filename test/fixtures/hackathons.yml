@@ -4,12 +4,12 @@ one:
   title: MyString
   topic: MyString
   description: MyText
-  owner: 
+  owner: one
   number_of_participants: 
 
 two:
   title: MyString
   topic: MyString
   description: MyText
-  owner: 
+  owner: one
   number_of_participants: 

@@ -1,56 +1,62 @@
+<% if logged? %>
+<p id="notice"><%= notice %></p>
 
-<head>
-<!-- link for voting system -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-
-<h1>Listing Proposal</h1>
+<h1>Proposals Of The Hackathon</h1>
 
 <table>
-<tr>
-<th>Hackathon</th>
-<th>title </th>
+<thead>
+<tr class="names">
+  
+  <th style="width:30%" >Title</th>
+  <th style="width:30%" >Description</th>
+  
+  <th style="width:20%" >Show</th>
 
-<th colspan="4"></th>
 
 </tr>
+</thead>
+
+<tbody>
+<% @hackathons= Hackathon.all %>
+<% @hackathons.each do |hackathon| %>
+  
+<br>
+<% @id=hackathon.id %>
+<%end %>
+<% @proposals= Proposal.all %>
 
 <% @proposals.each do |proposal| %>
-
+<% if @id==proposal.hackathon_id  then %>
 <tr>
-<td><%= proposal.hackathon.title %></td>
-<td><%= proposal.title %></td>
-<!-- voting system -->
-<td class="btn btn-default btn-sm">
+<td style="width:30%"><%= proposal.title%></td>
+<td style="width:30%"><%= proposal.description%></td>
+
+<td style="width:20%"><%= link_to 'Show', proposal_path(proposal) %></td>
+
+<td  class="btn btn-default btn-sm">
 <%= link_to like_proposal_path(proposal), method: :put do %> 
 <span class="glyphicon glyphicon-thumbs-up">Like (<%= proposal.get_upvotes.size %>)</span> 
-    
+ 
 <% end %>
 </td>
-<td class="btn btn-default btn-sm">
-  
+
+<td  class="btn btn-default btn-sm">
+
 <%= link_to dislike_proposal_path(proposal), method: :put do %>
-    <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= proposal.get_downvotes.size %>)</span> 
-    
+<span class="glyphicon glyphicon-thumbs-down">Dislike (<%= proposal.get_downvotes.size %>)</span> 
+<!-- Votes for the Proposal -->
+<!-- created by sajib -->
 <% end %>
 </td>
+<%end %>
 
-<td><%= link_to 'Show', proposal_path(proposal) %> 
-
-</td>
-
-
+<%end%>
 </tr>
-<% end %>
-
-
+</tbody>
 </table>
-<%= link_to 'Back', hackathons_path %>
 
 
 
 
+<%= link_to 'New Proposal', new_proposal_path(@id) %>
+<% end %>

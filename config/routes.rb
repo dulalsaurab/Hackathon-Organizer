@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   #get 'sessions/new'
 
   root :to => "homepage#home"
@@ -37,20 +38,37 @@ Rails.application.routes.draw do
   put 'hackathons/:id', to: 'hackathons#update'
   patch 'hackathons/:id', to: 'hackathons#update'
   delete 'hackathons/:id', to: 'hackathons#destroy'
+  get 'hackathons/:id/allProposal', to: 'hackathons#allProposal', as: 'allProposal_hackathon'
   
 
+  
+=begin
+#Created by sajib
   get 'proposals', to:'proposals#index', as:'proposals'
+  
+  get 'proposals/new', to: 'proposals#new', as: 'new_proposal'
+  post 'proposals', to: 'proposals#create'
   get 'proposals/:id', to: 'proposals#show', as: 'proposal'
-  #get 'upvote/:id', to: 'proposals#upvote'
+  get 'proposals/:id/edit', to: 'proposals#edit', as: 'edit_proposal'
+  put 'proposals/:id', to: 'proposals#update'
+  patch 'proposals/:id', to: 'proposals#update'
+  delete 'proposals/:id', to: 'proposals#destroy'
+  
+=end
 
-  resources :users
+ 
   resources :hackathons 
   resources :searches
   
-  resources :proposals do 
+
+ 
+  resources :proposals do
+     
     member do
-      put "like", to: "proposals#upvote"
-      put "dislike", to: "proposals#downvote"
+      put "like" => "proposals#upvote"
+      put "dislike" => "proposals#downvote"
     end
   end
+
+#created by sajib
 end

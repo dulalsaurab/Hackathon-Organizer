@@ -2,6 +2,7 @@ class SearchesController < ApplicationController
     def new
         @search =Search.new
         @topics = Hackathon.pluck(:topic)
+        #@is_privates = Hackathon.pluck(:is_private)
     end
     def create
         @search =Search.create(search_params)
@@ -12,6 +13,6 @@ class SearchesController < ApplicationController
     end
     private
     def search_params
-        params.require(:search).permit(:title, :topic, :description, :number_of_participants, :start_date, :end_date, :hackathon_venue)
+        params.require(:search).permit(:title, :topic, :description, :number_of_participants, :start_date, :end_date, :hackathon_venue, :is_private)
     end
 end

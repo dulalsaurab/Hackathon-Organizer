@@ -3,6 +3,7 @@
 one:
   keywords: MyString
   topic: MyString
+  is_private: no
   description: MyText
   owner: 1
   number_of_participants: 1
@@ -13,6 +14,7 @@ one:
 two:
   keywords: MyString
   topic: MyString
+  is_private: yes
   description: MyText
   owner: 1
   number_of_participants: 1

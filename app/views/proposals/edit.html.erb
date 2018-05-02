@@ -1,0 +1,31 @@
+<h3>Create New Proposal</h3>
+<hr >
+<%= form_for (@proposal), :html => {:class => "form-horizontal center"} do |f| %>
+      <div class="form-group">
+        <%= f.label :title, "Title:", class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, "Description:", class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+      
+      <hr style="border-color: #d5d5d5;">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :hackathon_id, :value => params[:format] %>
+      <%= f.submit "Submit", class: "btn-sm btn-default btn-primary pull-right abc" %>  
+
+      
+      
+</div>
+ <% end %>
+ 
+ <%= link_to 'Go Back', proposals_path(@proposal.hackathon_id), class: "btn-sm btn-success pull-right abc" %>
+
+</tbody>
+ 

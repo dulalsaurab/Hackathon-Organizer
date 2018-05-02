@@ -1,0 +1,11 @@
+
+<h1>Proposals </h1>
+@hk = Hackathon.all
+<div>
+
+<% if @hk.id == @hackathon.id then %>
+    <%= @hk.proposal.title %>
+<% end %>
+
+
+</div>

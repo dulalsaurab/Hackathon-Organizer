@@ -1,23 +1,52 @@
+<% if logged? %>
+<p id="notice"><%= notice %></p>
 
-<p>
-<b>title:</b>
-<%= @proposal.title%>
-</p>
-<td class="btn btn-default btn-sm">
+<h1>Proposal</h1>
+
+<table>
+<thead>
+<tr class="names">
+  
+  <th style="width:30%" >Title</th>
+  <th style="width:30%" >Description</th>
+  
+  
+
+
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td style="width:30%"><%= @proposal.title%></td>
+<td style="width:30%"><%= @proposal.description%></td>
+
+
+
+<td class="btn btn-default btn-sm" >
 <%= link_to like_proposal_path(@proposal), method: :put do %> 
 <span class="glyphicon glyphicon-thumbs-up">Like (<%= @proposal.get_upvotes.size %>)</span> 
-    
+ 
 <% end %>
 </td>
-<td class="btn btn-default btn-sm">
-  
+
+<td  class="btn btn-default btn-sm">
+
 <%= link_to dislike_proposal_path(@proposal), method: :put do %>
-    <span class="glyphicon glyphicon-thumbs-down">Dislike (<%= @proposal.get_downvotes.size %>)</span> 
-    
+<span class="glyphicon glyphicon-thumbs-down">Dislike (<%= @proposal.get_downvotes.size %>)</span> 
+<!-- Votes for the Proposal -->
+<!-- created by sajib -->
 <% end %>
 </td>
 
-<p>
+</tr>
+</tbody>
+</table>
 
-<%= link_to 'Back', proposals_path %>
-</p>
+
+
+
+<%= link_to 'New Proposal', new_proposal_path(@proposal.hackathon_id) %>
+<%= link_to 'Back', proposals_path(@proposal.hackathon_id) %>
+<% end %>

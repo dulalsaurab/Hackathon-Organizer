@@ -1,6 +1,6 @@
 <h1> Search Results </h1>
 
-<p><%= link_to 'Back', new_search_path %></p>
+<p><%= link_to 'Back', new_search_path, class: "btn-sm btn-success pull-left abc" %></p>
 <% if @search.search_hackathons.empty? %>
   <p> No Records Found </p>
 <% else %>
@@ -9,6 +9,7 @@
     <div class="div">
      <h1><%= c.title %></h1>
      <p>Topic: <%= c.topic %></p>
+     <p>Private: <%= c.is_private %></p>
      <p>Description: <%= c.description %></p>
      <p>hackathon_venue: <%= c.hackathon_venue %></p>
      <p>number_of_participants: <%= c.number_of_participants %></p>

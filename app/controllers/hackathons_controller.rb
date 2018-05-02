@@ -13,6 +13,9 @@ class HackathonsController < ApplicationController
     end 
     
   end
+  def allProposal
+    @hackathon = Hackathon.find(params[:id])
+  end
 
   def all
     @hackathons = Hackathon.paginate(page: params[:page], :per_page => 6)

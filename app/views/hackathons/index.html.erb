@@ -23,9 +23,11 @@
                   </div>
                 </div>
               </td>
-              <td data-th="Size" class="text-right hidden-xs"><%= link_to 'Show', hackathon %></td>
-              <td data-th="Price" class="text-right hidden-xs"><%= link_to 'Edit', edit_hackathon_path(hackathon) %></td>
-              <td data-th="Subtotal" class="text-right"><%= link_to 'Destroy', hackathon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td data-th="Size" class="text-right hidden-xs"><%= link_to 'Show Hackathon', hackathon %></td>
+              <td data-th="Price" class="text-right hidden-xs"><%= link_to 'Edit Hackathon', edit_hackathon_path(hackathon) %></td>
+            
+              <td data-th="Subtotal" class="text-right"><%= link_to 'Destroy Hackathon', hackathon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td data-th="Price" class="text-right hidden-xs"><%= link_to 'All Posted Proposals', proposals_path(hackathon.id) %></td>
             </tr>
           </tbody>
           <% end %>
@@ -33,6 +35,13 @@
             <tr class="no-border">
               <td>
                 <%= link_to 'Create New Hackathon', new_hackathon_path, class:"btn btn-default"%>
+                <!-- created by sajib -->
+
+                <%= link_to "Advanced Search", new_search_path, class: "btn btn-primary" %>
+                
+                <!-- 
+                created by sajib 
+                -->
           
               </td>
               <td colspan="2" class="hidden-xs"></td>

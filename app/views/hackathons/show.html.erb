@@ -86,6 +86,8 @@ function joinevent(){
        
       </div>
     </div>
+
+
     <% if @customtable.ids.any?%>
        <div class="thumbnail" id="addinfo" style="">
         <div class="caption">
@@ -98,14 +100,24 @@ function joinevent(){
         </div>
       </div>
     <%end%>
+    <div>
+    
 
 <% if logged? %>
+  
+
   <% if @hackathon.user_id == current_user.id || current_user.admin? %>
     <%= link_to 'Edit Hackathon', edit_hackathon_path(@hackathon), class: "btn-sm btn-success" %>
   <% else %>
     <%= link_to 'Submit A Proposal', "#", class: "btn-sm btn-success pull-right"%>
   <% end %>
 <% end %>
+    
+
+    <%= link_to 'Create New Proposal', new_proposal_path(@hackathon.id), class: "btn-sm btn-primary " %>
+    <%= link_to 'Vote for Proposals', proposals_path(@hackathon.id), class: "btn-sm btn-primary " %>
+    <%= link_to 'All Posted Proposals', proposals_path(@hackathon.id), class: "btn-sm btn-primary " %>
+    <!-- created by sajib -->
     <%= link_to 'Go To Main Page', root_url, class: "btn-sm btn-primary   "%>
     </div>
     

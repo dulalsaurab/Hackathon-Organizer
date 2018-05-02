@@ -8,13 +8,16 @@ class RegistrationsController < ApplicationController
             userId = current_user.id
 
             @registration = Registration.new(userId: userId, hackathon_id: hackathon_id)
-            if @registration.save
-                render json: { message: 'You joined this event successfully.' }
-            else 
-                render json: { message: 'Failled to join event.' }
+            
+            begin
+              @registration.save!
+              render json: { message: 'You joined this event successfully.', code: 'p' }
+            rescue ActiveRecord::RecordNotUnique => e
+              render json: { message: 'You are already registered to this event.', code:'u' }
             end
+
         else
-                render json: { message: 'You must be registered to join event.' }
+            render json: { message: 'You must be registered to join event.', code:'nl' }
         end 
     end
     
@@ -24,3 +27,4 @@ class RegistrationsController < ApplicationController
       params.require(:registrations).permit(:userId, :hackathon_id)
     end    
 end 
+

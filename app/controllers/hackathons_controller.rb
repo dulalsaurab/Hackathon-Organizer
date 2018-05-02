@@ -24,10 +24,15 @@ class HackathonsController < ApplicationController
   # GET /hackathons/1
   # GET /hackathons/1.json
   def show
-  
+    @user_list= []
+    
     @customtable = CustomeTable.where(:identifier_id => @hackathon.id)
     @reguser = Registration.where(:hackathon_id => @hackathon.id)
     
+    @reguser.each do |user| 
+      u = User.find(user.userId)
+      @user_list.push(u.user_name)
+    end
   end
 
   # GET /hackathons/new

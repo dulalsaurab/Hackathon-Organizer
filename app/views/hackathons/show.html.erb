@@ -10,7 +10,13 @@ function joinevent(){
                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(r){
+              if (r.code == 'p' || r.code =='u'){
+                $('#je').hide();
+                $('#jes').show();
+                $("#jes").width('67%');
+              }
               alert(r.message);
+
          }
         });
 }
@@ -34,7 +40,8 @@ function joinevent(){
 
     <div class="col-md-4">
       <%= csrf_meta_tag %>
-      <button type="button" onclick="joinevent();" class="joinevent btn-lg btn-danger" style="width: 100%;">Join Event</button>
+      <button id="je" type="button" onclick="joinevent();" class="joinevent btn-lg btn-danger" style="width: 100%;">Join Event</button>
+      <button id="jes" style="display:none; width: 100% important! " type="button" onclick="joinevent();" class="joinevent btn-lg btn-primary" > Joined </button>
     
       <div class="thumbnail" style="margin-top: 3%;">
       <div class="caption">
@@ -60,13 +67,12 @@ function joinevent(){
       <div class="thumbnail" style="">
       <div class="caption">
         <h3>Participants</h3>
-        <% @reguser.each do |p| %>
-          <%= p.userId %>
+        <% @user_list.each do |p| %>
+          | <%= p %> 
         <% end %>
         <!-- <img src="" alt="Avatar" style="border-radius: 50%;"> -->
       </div>
     </div>
-
     </div>
     <div class="col-md-8">
        

@@ -5,21 +5,16 @@ class RegistrationsController < ApplicationController
         hackathon_id = params[:HkId]
 
         if defined?(current_user.id) && (current_user.id != '') then 
-           userId = current_user.id
+            userId = current_user.id
+
             @registration = Registration.new(userId: userId, hackathon_id: hackathon_id)
-            respond_to do |format|
-              if @registration.save
-                respond_to :js, :json, :html
-                format.html { redirect_to '/hackathons/' + hackathon_id, notice: 'You joined this event successfully.' }
-                format.json { render json: "aa" }
-              end
-          end
+            if @registration.save
+                render json: { message: 'You joined this event successfully.' }
+            else 
+                render json: { message: 'Failled to join event.' }
+            end
         else
-          respond_to do |format|
-                respond_to :js, :json, :html
-                format.html { redirect_to '/hackathons/' + hackathon_id, notice: 'You must be registered to join event.' }
-                format.json { render json: "bb" }
-          end
+                render json: { message: 'You must be registered to join event.' }
         end 
     end
     

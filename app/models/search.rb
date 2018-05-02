@@ -2,7 +2,7 @@ class Search < ApplicationRecord
     def search_hackathons
 
         hackathons = Hackathon.all
-        if hackathons = hackathons.where(["Public or Private ?", is_private]) if is_private.casecmp("no")==0? then
+        hackathons = hackathons.where(["Public or Private ?", is_private]) if is_private.present? 
 
         
        
@@ -17,9 +17,7 @@ class Search < ApplicationRecord
         
         
         return hackathons
-        else
-            return null
-        end
+        
     end
     
 end

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180502000606) do
+=======
+ActiveRecord::Schema.define(version: 20180502035630) do
+>>>>>>> 57b0ca20ab0a81382cd11ac8a77cdc8f856e48fb
 
   create_table "custome_tables", force: :cascade do |t|
     t.string "question"
@@ -35,6 +39,10 @@ ActiveRecord::Schema.define(version: 20180502000606) do
     t.integer "user_id"
     t.string "is_private"
     t.string "twitter_link"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["user_id"], name: "index_hackathons_on_user_id"
   end
 

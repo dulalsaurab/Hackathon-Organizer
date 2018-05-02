@@ -16,7 +16,12 @@
               <% @hackathons.each do |hackathon| %>
                <div class="col-md-4">     
                   <div class="thumbnail">
-                    <img src="http://placehold.it/300x200" alt="">
+                    
+                    <% if hackathon.avatar? %>
+                      <%= image_tag hackathon.avatar.url(:medium) %>
+                    <% else %>
+                      <img src="http://placehold.it/300x200" alt="">
+                    <% end %>
                     <hr >
                       <div class="caption">
                         <p style="margin-top: -3%;">A hackathon on</p>

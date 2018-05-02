@@ -34,7 +34,19 @@
           <%= f.text_field :topic, class: "form-control" %>
         </div>
       </div>
-
+      <div class="form-group">
+      <%= f.label :avatar, "Profile Image:", class: "col-md-3 control-label" %>  
+      <div class="fileinput fileinput-new col-md-7" data-provides="fileinput">
+          <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 317px; height: 150px;"></div>
+              <div>
+                <span class="btn btn-default btn-file">
+                  <span class="fileinput-new">Select image</span>
+                  <%= f.file_field :avatar %>
+                </span>
+              </div>
+      </div>
+    </div>
+    
       <div class="form-group">
         <%= f.label :description, "Description:", class: "col-md-3 control-label" %>
         <div class="col-md-7">
@@ -99,6 +111,45 @@
 </div>
  <% end %>
  
+
+ <script type="text/javascript">
+    
+    function remove_ele(array, element) {
+        const index = array.indexOf(element);
+        array.splice(index, 1);
+        count = count-1 
+    }
+
+    function add_element(){
+        if (count > 10){
+          alert("You can add more than 6 question");
+          return;
+        }
+        var placeholder = ['Question', 'Answer'];
+        temp = ++count;
+        list.push(temp);
+        $("<div id="+(temp)+" class='row'><div class='col-md-7 col-md-offset-3'> \
+          <input name=cus_field"+(temp)+" type='text' class='form-control' placeholder="+(placeholder[0])+" ></div> \
+                <div class='col-md-1'><i class='fa fa-minus-circle' onclick='delete_element("+(temp)+");'></i></div><br /> \
+          </div></div>").appendTo('#cusfield');
+        temp = ++count;
+        list.push(temp);
+        $("<div id="+(temp)+" class='row'><div class='col-md-7 col-md-offset-3'> \
+          <textarea name=cus_field"+(temp)+" class='form-control' placeholder="+(placeholder[1])+" ></textarea></div> \
+                <div class='col-md-1'></div> \
+        </div>").appendTo('#cusfield');
+        $('.t_count').val(list);
+    }
+
+    function delete_element(index){
+        remove_ele(list, index)
+        remove_ele(list, index+1)
+        $("#"+(index)).remove();
+        $("#"+(index+1)).remove();
+        $('.t_count').val(list); 
+    }
+</script>
+
 
 <script type="text/javascript">
     $(function () {

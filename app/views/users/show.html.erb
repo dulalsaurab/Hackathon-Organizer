@@ -1,31 +1,47 @@
-<div class=" col-md-offset-3">
-<p id="notice"><%= notice %></p>
-
-<h2 style= "text-align:left;">
+<% provide(:title, @user.user_name) %>
+<%unless @user.admin?%>
+<div class="container">
+<div class="row">
+  <aside class="col-md-3">
+    <section class="stats col-md-offset-4">
+      <h1>
+        <%= @user.user_name %>
+      </h1>
+      </br>
+    </section>
+    <section class="stats col-md-offset-4">
+      <p>
+        <%= @user.description %>
+      </p>
+      </br>
+    </section>
+    <section class="stats col-md-offset-4" >
+      <%= render 'common/stats' %>
+      </br>
+    </section>
+    <% if !current_user?(@user)%>
+    <section class = "col-md-offset-4">
+      <%= link_to "My Hackathons", hackathons_path, class: "btn btn-info" %>
+      
+    </section>
+    <% end %>
+    <section class = "col-md-offset-4">
+      </br>
+      <%= link_to 'Create New Hackathon', new_hackathon_path, class: "btn btn-info" %>
+      
+    </section>
+    <section  class = "col-md-offset-4">
+    </br>
+      <%= render 'follow_form' if logged? %>
+    </section>
+  </aside>
+  <div class="col-md-4">
+    
+    <div>
+      <h2>List of Hackathons the user is registered</h2>
+    </div>
+  </div>
   
-  <% if current_user.admin? && !current_user?(@user) %>
-  Hello 
-    <strong>ADMIN. </strong>
-</h2>
-    <p>
-      Welcome to <strong><%= @user.user_name %> </strong>profile!
-    </p>
-  <%else%>
-<h2 style= "text-align:left;">
-  Hello
-  <strong>
-  <%= @user.user_name %>.
-  </strong>
-  
-</h2>
-
-  <p>
-    <strong>Welcome to your profile!</strong>
-  </p>
-
-  
-<div class="col-md-4">
-  <%= link_to "My Hackathons", hackathons_path, class: "btn btn-primary" %>
 </div>
 <div class="col-md-4">
 <!-- created by sajib -->
@@ -33,36 +49,55 @@
 <%= link_to "Advanced Search", new_search_path, class: "btn btn-primary" %>
 <!-- created by sajib -->
 </div>
-<div class="col-md-4">
-  <a class="btn btn-primary" href="#">Followers</a>
+<% else %>
+<div class="container">
+<div class="row col-md-12">
+<h1 style = "text-align: center;">
+  ADMIN PANEL
+</h1>
 </div>
-</br></br>
-</br></br>
-</br></br>
+<div class="row">
 
-  <% end %>
+  <div class="col-md-8">
+    <h3 style = "text-align: left;">
+      List of Hackathons | <%= @hackathons.count %>
+    </h3>
+    </br>
+    <ul style="list-style-type:none;">
+    <% @hackathons.each do |hackathon| %>
+      <li>
+        <%= link_to hackathon.title, homepage_url(hackathon.id), class: "btn btn-info"%> |
+        <%= link_to 'Destroy', hackathon, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      </br>
+    <% end %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+  <div class="col-md-4">
+    <h3>
+      List of Users | <%= @users.count %>
+    </h3>
+    </br>
+    <ul style="list-style-type:none;">
+    <% @users.each do |user| %>
+    <% unless user.admin? %>
+    <li>
+        <%= link_to user.user_name, user, class: "btn btn-info" %>
+        
+        <% if current_user.admin? && !current_user?(user) %> |
+        <%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
 
-<!--
-<p>
-  <strong>Passworld:</strong>
-  <%= @user.passworld %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
--->
-</br>
-
-
-
-<h3 style="text-align:left;">Coming soon...</h2>
-<h4>List of Hackathons that <%= @user.user_name %>. is registered!</h3>
-<h4>List of Users that <%= @user.user_name %> is registered</h3>
-
-<% if current_user.admin? && !current_user?(@user) %>
-    Do you want to <%= link_to "DELETE", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>, this user?
+        <% end %>
+      
+    </li>
+    </br>
+    <% end %>
+    <% end %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>
+</div>
 <% end %>
-</div>

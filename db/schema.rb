@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502120333) do
+#ActiveRecord::Schema.define(version: 20180502120333) do
+ActiveRecord::Schema.define(version: 20180502073951) do
 
   create_table "custome_tables", force: :cascade do |t|
     t.string "question"
@@ -35,6 +36,10 @@ ActiveRecord::Schema.define(version: 20180502120333) do
     t.integer "user_id"
     t.string "is_private"
     t.string "twitter_link"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["user_id"], name: "index_hackathons_on_user_id"
   end
 
@@ -65,10 +70,19 @@ ActiveRecord::Schema.define(version: 20180502120333) do
 
   create_table "registrations", force: :cascade do |t|
     t.integer "userId"
-    t.integer "HkId"
+    t.integer "hackathon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -95,6 +109,7 @@ ActiveRecord::Schema.define(version: 20180502120333) do
     t.boolean "admin"
     t.string "password_digest"
     t.string "remember_me"
+    t.text "description"
   end
 
   create_table "votes", force: :cascade do |t|

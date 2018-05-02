@@ -18,6 +18,10 @@ class HackathonsController < ApplicationController
     @hackathon = Hackathon.find(params[:id])
   end
 
+  def all
+    @hackathons = Hackathon.paginate(page: params[:page], :per_page => 6)
+  end
+
   # GET /hackathons/1
   # GET /hackathons/1.json
   def show
@@ -80,9 +84,13 @@ class HackathonsController < ApplicationController
   # DELETE /hackathons/1.json
   def destroy
     @hackathon.destroy
-    respond_to do |format|
-      format.html { redirect_to hackathons_url, notice: 'Hackathon was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.admin?
+      redirect_to current_user
+    else
+      respond_to do |format|
+        format.html { redirect_to hackathons_url, notice: 'Hackathon was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -94,7 +102,7 @@ class HackathonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hackathon_params
-      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id, :is_private, :twitter_link)
+      params.require(:hackathon).permit(:title, :topic, :description, :owner, :number_of_participants, :start_date, :end_date, :hackathon_venue, :user_id, :is_private, :twitter_link, :avatar)
       # params.fetch(:hackathon, {})
     end
 

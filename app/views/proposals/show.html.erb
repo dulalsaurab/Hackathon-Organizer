@@ -1,10 +1,18 @@
 <% if logged? %>
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="jumbotron" style="margin-top: 2%; height: 10%;">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-<h1>Proposal</h1>
+        
 
-<table>
+
+<h3>Proposal</h3>
+
+<table id="cart" class="table table-responsive">
 <thead>
+<div class="col-sm-9">
 <tr class="names">
   
   <th style="width:30%" >Title</th>
@@ -12,10 +20,13 @@
 
 </tr>
 </thead>
-
+</div>
+</div>
+</div>
+</div>
 <tbody>
 
-<tr>
+<tr class="item">
 <td style="width:30%"><%= @proposal.title%></td>
 <td style="width:30%"><%= @proposal.description%></td>
 
@@ -40,8 +51,8 @@
 </table>
 
 
+<%= link_to 'New Proposal', new_proposal_path(@proposal.hackathon_id), class: "btn-sm btn-success pull-left" %></td>
+<%= link_to 'Back', proposals_path(@proposal.hackathon_id), class: "btn-sm btn-success pull-right"%></td>
 
 
-<%= link_to 'New Proposal', new_proposal_path(@proposal.hackathon_id) %>
-<%= link_to 'Back', proposals_path(@proposal.hackathon_id) %>
 <% end %>

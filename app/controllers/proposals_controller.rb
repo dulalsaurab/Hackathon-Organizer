@@ -5,6 +5,7 @@ class ProposalsController < ApplicationController
   # GET /proposals.json
   def index
     @hackathon = Hackathon.find_by id: params["hackathon_id"]
+
     @proposal = Proposal.all.order(:cached_votes_score => :desc)
     
     #@proposals=Proposal.find_by id: params["hackathon_id"]

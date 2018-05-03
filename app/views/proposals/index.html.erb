@@ -1,21 +1,30 @@
 <% if logged? %>
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="jumbotron" style="margin-top: 2%; height: 10%;">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-<h1>Proposals Of The Hackathon</h1>
+        
 
-<table>
+<table id="cart" class="table table-responsive">
 <thead>
-<tr class="names">
+<div class="col-sm-9">
+<p class="text-center"> Proposals of the Hackathon</p>
+<tr class="item">
+
+  <th style="width:30%" class="text-center">Title</th>
+  <th style="width:20%" class="text-center" >Description</th>
   
-  <th style="width:30%" >Title</th>
-  <th style="width:30%" >Description</th>
-  
-  <th style="width:20%" >Show</th>
+  <th style="width:20%" class="text-center" class="text-right hidden-xs">Show</th>
 
 
 </tr>
 </thead>
-
+</div>
+</div>
+</div>
+</div>
 <tbody>
 <% @hackathons= Hackathon.all %>
 <% @hackathons.each do |hackathon| %>
@@ -27,11 +36,11 @@
 
 <% @proposals.each do |proposal| %>
 <% if @id==proposal.hackathon_id  then %>
-<tr>
-<td style="width:30%"><%= proposal.title%></td>
-<td style="width:30%"><%= proposal.description%></td>
+<tr class="item">
+<td data-th="Product" style="width:30%" class="text-left hidden-xs"><%= proposal.title%></td>
+<td data-th="Product" style="width:20%" class="text-center hidden-xs"><%= proposal.description%></td>
 
-<td style="width:20%"><%= link_to 'Show', proposal_path(proposal) %></td>
+<td data-th="Product" style="width:20%" class="text-center hidden-xs"><%= link_to 'Show', proposal_path(proposal) %></td>
 
 <td  class="btn btn-default btn-sm">
 <%= link_to like_proposal_path(proposal), method: :put do %> 
@@ -56,7 +65,9 @@
 </table>
 
 
+<%= link_to 'New Proposal', new_proposal_path(@id), class: "btn-sm btn-success pull-left"%>
 
 
-<%= link_to 'New Proposal', new_proposal_path(@id) %>
 <% end %>
+</div>
+</div>
